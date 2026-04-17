@@ -5,10 +5,16 @@
   "type": "module",
   "scripts": {
     "hello": "tsx ./src/hello.ts",
+    "parseBannedList": "tsx ./src/parseBannedList.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "pdf-parse": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "@types/pdf-parse": "^1.1.4",
     "tsx": "catalog:"
   }
 }
