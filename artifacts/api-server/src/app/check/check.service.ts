@@ -5,7 +5,7 @@ import { getPatientById } from '../patient/patient.service.js';
 import { CheckHistoryModel } from './check.schema.js';
 import { getMedicineByBrand } from '../common/services/medicineIndex.js';
 import type { CheckRequestDTO, CheckResponseDTO, CheckResultItem } from './check.dto.js';
-import { logger } from '../../../lib/logger.js';
+import { logger } from '../../lib/logger.js';
 
 interface InteractionResult {
   interacts: boolean;

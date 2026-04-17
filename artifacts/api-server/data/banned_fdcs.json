@@ -1,0 +1,4669 @@
+[
+  {
+    "id": 1,
+    "combination": [
+      "amidopyrine"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 2,
+    "combination": [
+      "vitamins",
+      "anti-inflammatory agents",
+      "tranquilizers"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 3,
+    "combination": [
+      "atropine",
+      "analgesics",
+      "antipyretics"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 4,
+    "combination": [
+      "strychnine",
+      "caffeine"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 5,
+    "combination": [
+      "yohimbine",
+      "strychnine",
+      "testosterone",
+      "vitamins"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 6,
+    "combination": [
+      "iron",
+      "strychnine",
+      "arsenic",
+      "yohimbine"
+    ],
+    "gazette_ref": "GSR NO.578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 7,
+    "combination": [
+      "sodium bromide",
+      "chloral hydrate"
+    ],
+    "gazette_ref": "GSR NO.578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 8,
+    "combination": [
+      "phenacetin"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 9,
+    "combination": [
+      "antihistaminic",
+      "anti-diarrhoeals"
+    ],
+    "gazette_ref": "GSR NO.578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 10,
+    "combination": [
+      "penicillin",
+      "sulphonamides"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 11,
+    "combination": [
+      "vitamins",
+      "analgesics"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 12,
+    "combination": [
+      "tetracycline",
+      "vitamin c"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 13,
+    "combination": [
+      "hydroxyquinoline"
+    ],
+    "gazette_ref": "Substituted vide GSR NO. 793(E) Dated 13.12.1995"
+  },
+  {
+    "id": 14,
+    "combination": [
+      "chloramphenicol"
+    ],
+    "gazette_ref": "Substituted vide GSR NO. 1057(E) Dated 03.11.1988"
+  },
+  {
+    "id": 15,
+    "combination": [
+      "ergot",
+      "ergotamine",
+      "caffeine",
+      "analgesics",
+      "antihistamines"
+    ],
+    "gazette_ref": "Substituted vide GSR NO. 304 (E) Dated 07.06.1991"
+  },
+  {
+    "id": 16,
+    "combination": [
+      "vitamins",
+      "anti tb drugs",
+      "isoniazid",
+      "pyridoxine hydrochloride"
+    ],
+    "gazette_ref": "GSR NO. 578 (E) Dated 23.07.1983"
+  },
+  {
+    "id": 17,
+    "combination": [
+      "penicillin"
+    ],
+    "gazette_ref": "GSR NO. 578 (E) Dated 23.07.1983"
+  },
+  {
+    "id": 18,
+    "combination": [
+      "tetracycline"
+    ],
+    "gazette_ref": "GSR NO. 578 (E) Dated 23.07.1983"
+  },
+  {
+    "id": 19,
+    "combination": [
+      "nialamide"
+    ],
+    "gazette_ref": "GSR NO. 578 (E) Dated 23.07.1983"
+  },
+  {
+    "id": 20,
+    "combination": [
+      "practolol"
+    ],
+    "gazette_ref": "GSR NO. 578 (E) Dated 23.07.1983"
+  },
+  {
+    "id": 21,
+    "combination": [
+      "methapyrilene"
+    ],
+    "gazette_ref": "GSR NO. 578(E) Dated 23.07.1983"
+  },
+  {
+    "id": 22,
+    "combination": [
+      "methaqualone"
+    ],
+    "gazette_ref": "GSR NO. 49 (E) Dated 31.01.1984"
+  },
+  {
+    "id": 23,
+    "combination": [
+      "oxytetracycline"
+    ],
+    "gazette_ref": "GSR NO. 322 (E) Dated 03.05.1984"
+  },
+  {
+    "id": 24,
+    "combination": [
+      "demeclocycline"
+    ],
+    "gazette_ref": "GSR NO. 322 (E) Dated 03.05.1984"
+  },
+  {
+    "id": 25,
+    "combination": [
+      "anabolic steroids"
+    ],
+    "gazette_ref": "GSR NO. 863 (E) Dated 22.11.1985"
+  },
+  {
+    "id": 26,
+    "combination": [
+      "oestrogen",
+      "progestin"
+    ],
+    "gazette_ref": "Substituted vide GSR NO. 743 (E) Dated 10.08.1989"
+  },
+  {
+    "id": 27,
+    "combination": [
+      "sedatives",
+      "hypnotics",
+      "anxiolytics",
+      "analgesics",
+      "antipyretics"
+    ],
+    "gazette_ref": "GSR NO. 999(E) Dated 26.12.1990"
+  },
+  {
+    "id": 29,
+    "combination": [
+      "histamine h-2 receptor antagonists",
+      "antacids"
+    ],
+    "gazette_ref": "GSR NO. 999 (E) Dated 26.12.1990"
+  },
+  {
+    "id": 30,
+    "combination": [
+      "essential oils",
+      "alcohol"
+    ],
+    "gazette_ref": "GSR NO. 999 (E) Dated 26.12.1990"
+  },
+  {
+    "id": 31,
+    "combination": [
+      "chloroform"
+    ],
+    "gazette_ref": "GSR NO. 999 (E) Dated 26.12.1990"
+  },
+  {
+    "id": 32,
+    "combination": [
+      "ethambutol",
+      "inh"
+    ],
+    "gazette_ref": "GSR NO. 69(E) Dated 11.02.1991"
+  },
+  {
+    "id": 33,
+    "combination": [
+      "antihistamine"
+    ],
+    "gazette_ref": "GSR NO. 69(E) Dated 11.02.1991"
+  },
+  {
+    "id": 34,
+    "combination": [
+      "anthelmintic",
+      "cathartic",
+      "purgative"
+    ],
+    "gazette_ref": "GSR NO. 69 (E) Dated 11.02.1991"
+  },
+  {
+    "id": 35,
+    "combination": [
+      "salbutamol",
+      "bronchodilator",
+      "antitussive",
+      "antihistamine"
+    ],
+    "gazette_ref": "GSR NO. 290(E) Dated 16.04.2008"
+  },
+  {
+    "id": 36,
+    "combination": [
+      "laxatives",
+      "antispasmodic",
+      "enzyme"
+    ],
+    "gazette_ref": "GSR NO. 69(E) Dated 11.02.1991"
+  },
+  {
+    "id": 37,
+    "combination": [
+      "metoclopramide",
+      "aspirin",
+      "paracetamol"
+    ],
+    "gazette_ref": "GSR NO. 603(E) Dated 24.08.2001"
+  },
+  {
+    "id": 38,
+    "combination": [
+      "antitussive",
+      "antihistamine",
+      "expectorant"
+    ],
+    "gazette_ref": "GSR NO. 395(E) Dated 19.05.1999"
+  },
+  {
+    "id": 39,
+    "combination": [
+      "antitussive",
+      "antihistamine"
+    ],
+    "gazette_ref": "GSR NO. 395(E) Dated 19.05.1999"
+  },
+  {
+    "id": 40,
+    "combination": [
+      "glycerophosphates",
+      "phosphates",
+      "alcohol"
+    ],
+    "gazette_ref": "GSR NO. 395(E) Dated 19.05.1999"
+  },
+  {
+    "id": 41,
+    "combination": [
+      "pectin",
+      "kaolin"
+    ],
+    "gazette_ref": "GSR NO. 395(E) Dated 19.05.1999"
+  },
+  {
+    "id": 42,
+    "combination": [
+      "chloral hydrate"
+    ],
+    "gazette_ref": "GSR NO. 304(E) Dated 07.06.1991"
+  },
+  {
+    "id": 43,
+    "combination": [
+      "dovers powder"
+    ],
+    "gazette_ref": "GSR NO. 612(E) Dated 09.08.1994"
+  },
+  {
+    "id": 44,
+    "combination": [
+      "dover's powder"
+    ],
+    "gazette_ref": "GSR NO. 612(E) Dated 09.08.1994"
+  },
+  {
+    "id": 45,
+    "combination": [
+      "kaolin",
+      "pectin",
+      "attapulgite",
+      "activated charcoal"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 46,
+    "combination": [
+      "phthalyl sulphathiazole",
+      "sulphaguanidine",
+      "succinyl sulphathiazole"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 47,
+    "combination": [
+      "neomycin",
+      "streptomycin",
+      "dihydrostreptomycin"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 48,
+    "combination": [
+      "diphenoxylate",
+      "loperamide",
+      "atropine",
+      "belladona",
+      "hyoscyamine"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 49,
+    "combination": [
+      "halogenated hydroxyquinolines"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 50,
+    "combination": [
+      "antidiarrhoeals",
+      "electrolytes"
+    ],
+    "gazette_ref": "GSR NO. 731(E) Dated 30.09.1994"
+  },
+  {
+    "id": 51,
+    "combination": [
+      "oral rehydration salts"
+    ],
+    "gazette_ref": "GSR NO. 57(E) Dated 07.02.1995"
+  },
+  {
+    "id": 52,
+    "combination": [
+      "oxyphenbutazone",
+      "phenylbutazone"
+    ],
+    "gazette_ref": "GSR NO. 633(E) Dated 13.09.1995"
+  },
+  {
+    "id": 53,
+    "combination": [
+      "analgin"
+    ],
+    "gazette_ref": "GSR NO. 405(E) Dated 03.06.1996"
+  },
+  {
+    "id": 54,
+    "combination": [
+      "dextropropoxyphene"
+    ],
+    "gazette_ref": "GSR NO. 633(E) Dated 13.09.1995"
+  },
+  {
+    "id": 55,
+    "combination": [
+      "ayurvedic drug",
+      "siddha drug",
+      "unani drug"
+    ],
+    "gazette_ref": "GSR NO. 633(E) Dated 13.09.1995"
+  },
+  {
+    "id": 56,
+    "combination": [
+      "mepacrine hydrochloride",
+      "quinacrine"
+    ],
+    "gazette_ref": "GSR NO. 499(E) Dated 14.08.1998"
+  },
+  {
+    "id": 57,
+    "combination": [
+      "fenfluramine"
+    ],
+    "gazette_ref": "GSR NO. 499(E) Dated 14.08.1998"
+  },
+  {
+    "id": 58,
+    "combination": [
+      "dexfenfluramine"
+    ],
+    "gazette_ref": "GSR NO. 499(E) Dated 14.08.1998"
+  },
+  {
+    "id": 59,
+    "combination": [
+      "diazepam",
+      "diphenhydramine hydrochloride"
+    ],
+    "gazette_ref": "GSR NO. 169(E) Dated 12.03.2001"
+  },
+  {
+    "id": 60,
+    "combination": [
+      "tobacco"
+    ],
+    "gazette_ref": "GSR NO. 444(E) Dated 30.04.1992"
+  },
+  {
+    "id": 61,
+    "combination": [
+      "streptomycin",
+      "penicillin"
+    ],
+    "gazette_ref": "GSR NO. 93(E) Dated 25.02.1997"
+  },
+  {
+    "id": 62,
+    "combination": [
+      "vitamin b1",
+      "vitamin b6",
+      "vitamin b12"
+    ],
+    "gazette_ref": "GSR NO. 702(E) Dated 14.10.1999"
+  },
+  {
+    "id": 63,
+    "combination": [
+      "haemoglobin"
+    ],
+    "gazette_ref": "GSR NO. 814(E) Dated 16.12.1999"
+  },
+  {
+    "id": 64,
+    "combination": [
+      "pancreatin",
+      "pancrelipase",
+      "amylase",
+      "protease",
+      "lipase"
+    ],
+    "gazette_ref": "GSR NO. 814(E) Dated 16.12.1999"
+  },
+  {
+    "id": 65,
+    "combination": [
+      "nitrofurantoin",
+      "trimethoprim"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 66,
+    "combination": [
+      "phenobarbitone"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 67,
+    "combination": [
+      "phenobarbitone",
+      "hyoscin",
+      "hyoscyamine"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 68,
+    "combination": [
+      "phenobarbitone",
+      "ergotamine",
+      "belladonna"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 69,
+    "combination": [
+      "haloperidol",
+      "propantheline bromide"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 70,
+    "combination": [
+      "nalidixic acid",
+      "metronidazole"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 71,
+    "combination": [
+      "loperamide hydrochloride",
+      "furazolidone"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 72,
+    "combination": [
+      "cyproheptadine",
+      "lysine",
+      "peptone"
+    ],
+    "gazette_ref": "GSR NO. 170(E) Dated 12.03.2001"
+  },
+  {
+    "id": 73,
+    "combination": [
+      "astemizole"
+    ],
+    "gazette_ref": "GSR NO. 191(E) Dated 05.03.2003"
+  },
+  {
+    "id": 74,
+    "combination": [
+      "terfinadine"
+    ],
+    "gazette_ref": "GSR NO. 191(E) Dated 05.03.2003"
+  },
+  {
+    "id": 75,
+    "combination": [
+      "phenformin"
+    ],
+    "gazette_ref": "GSR NO. 780(E) Dated 01.10.2003"
+  },
+  {
+    "id": 76,
+    "combination": [
+      "rofecoxib"
+    ],
+    "gazette_ref": "GSR NO. 810(E) Dated 13.12.2004"
+  },
+  {
+    "id": 77,
+    "combination": [
+      "valdecoxib"
+    ],
+    "gazette_ref": "GSR NO. 510(E) Dated 28.07.2005"
+  },
+  {
+    "id": 78,
+    "combination": [
+      "diclofenac"
+    ],
+    "gazette_ref": "GSR NO. 499(E) Dated 04.07.2008"
+  },
+  {
+    "id": 79,
+    "combination": [
+      "rimonabant"
+    ],
+    "gazette_ref": "GSR NO. 884(E) Dated 11.12.2009"
+  },
+  {
+    "id": 80,
+    "combination": [
+      "rosiglitazone"
+    ],
+    "gazette_ref": "GSR NO. 910(E) Dated 12.11.2010"
+  },
+  {
+    "id": 81,
+    "combination": [
+      "nimesulide"
+    ],
+    "gazette_ref": "GSR NO. 82(E) Dated 10.02.2011"
+  },
+  {
+    "id": 82,
+    "combination": [
+      "cisapride"
+    ],
+    "gazette_ref": "GSR NO. 82(E) Dated 10.02.2011"
+  },
+  {
+    "id": 83,
+    "combination": [
+      "phenylpropanolamine"
+    ],
+    "gazette_ref": "GSR NO. 82(E) Dated 10.02.2011"
+  },
+  {
+    "id": 84,
+    "combination": [
+      "human placental extract"
+    ],
+    "gazette_ref": "GSR NO. 418(E) Dated 30.05.2011"
+  },
+  {
+    "id": 85,
+    "combination": [
+      "sibutramine"
+    ],
+    "gazette_ref": "GSR NO. 82(E) Dated 10.02.2011"
+  },
+  {
+    "id": 86,
+    "combination": [
+      "r-sibutramine"
+    ],
+    "gazette_ref": "GSR NO. 82(E) Dated 10.02.2011"
+  },
+  {
+    "id": 87,
+    "combination": [
+      "gatifloxacin"
+    ],
+    "gazette_ref": "GSR NO. 218(E) Dated 16.03.2011"
+  },
+  {
+    "id": 88,
+    "combination": [
+      "tegaserod"
+    ],
+    "gazette_ref": "GSR NO. 218(E) Dated 16.03.2011"
+  },
+  {
+    "id": 89,
+    "combination": [
+      "letrozole"
+    ],
+    "gazette_ref": "GSR NO. 752(E) Dated 12.10.2011"
+  },
+  {
+    "id": 90,
+    "combination": [
+      "serodiagnostic test kits for tuberculosis"
+    ],
+    "gazette_ref": "GSR 432(E) Dated 07.06.2012 & GSR 433(E) Dated 07.06.2012"
+  },
+  {
+    "id": 91,
+    "combination": [
+      "dextropropoxyphene"
+    ],
+    "gazette_ref": "G.S.R.332(E) Dated 23.5.2013"
+  },
+  {
+    "id": 92,
+    "combination": [
+      "pioglitazone"
+    ],
+    "gazette_ref": "G.S.R.No. 379(E) Dated 18.6.2013"
+  },
+  {
+    "id": 93,
+    "combination": [
+      "flupenthixol",
+      "melitracen"
+    ],
+    "gazette_ref": "G.S.R.377(E) Dated 18.6.2013 and 498(E) Dated 11.07.2014"
+  },
+  {
+    "id": 94,
+    "combination": [
+      "analgin"
+    ],
+    "gazette_ref": "G.S.R. No 378(E) Dated 18.6.2013"
+  },
+  {
+    "id": 95,
+    "combination": [
+      "nimesulide",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.712(E) Dated 10.03.2016"
+  },
+  {
+    "id": 96,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.713(E) Dated 10.03.2016"
+  },
+  {
+    "id": 97,
+    "combination": [
+      "amoxicillin",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.777(E) Dated 10.03.2016"
+  },
+  {
+    "id": 98,
+    "combination": [
+      "pholcodine",
+      "promethazine"
+    ],
+    "gazette_ref": "S.O.789(E) Dated 10.03.2016"
+  },
+  {
+    "id": 99,
+    "combination": [
+      "imipramine",
+      "diazepam"
+    ],
+    "gazette_ref": "S.O.795(E) Dated 10.03.2016"
+  },
+  {
+    "id": 100,
+    "combination": [
+      "chlorpheniramine maleate",
+      "dextromethorphan",
+      "guaiphenesin",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.869(E) Dated 10.03.2016"
+  },
+  {
+    "id": 101,
+    "combination": [
+      "chlorpheniramine maleate",
+      "codeine"
+    ],
+    "gazette_ref": "S.O.909(E) Dated 10.03.2016"
+  },
+  {
+    "id": 102,
+    "combination": [
+      "ammonium chloride",
+      "bromhexine",
+      "dextromethorphan"
+    ],
+    "gazette_ref": "S.O.922(E) Dated 10.03.2016"
+  },
+  {
+    "id": 103,
+    "combination": [
+      "dextromethorphan",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.926(E) Dated 10.03.2016"
+  },
+  {
+    "id": 104,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "guaifenesin",
+      "ammonium chloride"
+    ],
+    "gazette_ref": "S.O.930(E) Dated 10.03.2016"
+  },
+  {
+    "id": 105,
+    "combination": [
+      "caffeine",
+      "paracetamol",
+      "phenylephrine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.950(E) Dated 10.03.2016"
+  },
+  {
+    "id": 106,
+    "combination": [
+      "paracetamol",
+      "bromhexine",
+      "phenylephrine",
+      "chlorpheniramine",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.977(E) Dated 10.03.2016"
+  },
+  {
+    "id": 107,
+    "combination": [
+      "salbutamol",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.978(E) Dated 10.03.2016"
+  },
+  {
+    "id": 108,
+    "combination": [
+      "chlorpheniramine",
+      "codeine phosphate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.983(E) Dated 10.03.2016"
+  },
+  {
+    "id": 109,
+    "combination": [
+      "phenytoin",
+      "phenobarbitone sodium"
+    ],
+    "gazette_ref": "S.O.1028(E) Dated 10.03.2016"
+  },
+  {
+    "id": 110,
+    "combination": [
+      "ammonium chloride",
+      "sodium citrate",
+      "chlorpheniramine maleate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4411(E) Dated 07.09.2018"
+  },
+  {
+    "id": 111,
+    "combination": [
+      "chlorpheniramine maleate",
+      "ammonium chloride",
+      "sodium citrate"
+    ],
+    "gazette_ref": "S.O.4532(E) Dated 07.09.2018"
+  },
+  {
+    "id": 112,
+    "combination": [
+      "salbutamol",
+      "etofylline",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4687(E) Dated 07.09.2018"
+  },
+  {
+    "id": 113,
+    "combination": [
+      "paracetamol",
+      "propyphenazone",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4689(E) Dated 07.09.2018"
+  },
+  {
+    "id": 114,
+    "combination": [
+      "aceclofenac",
+      "paracetamol",
+      "rabeprazole"
+    ],
+    "gazette_ref": "S.O.4379(E) Dated 07.09.2018"
+  },
+  {
+    "id": 115,
+    "combination": [
+      "azithromycin",
+      "secnidazole",
+      "fluconazole"
+    ],
+    "gazette_ref": "S.O.4429(E) Dated 07.09.2018"
+  },
+  {
+    "id": 116,
+    "combination": [
+      "glimepiride",
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4471(E) Dated 07.09.2018"
+  },
+  {
+    "id": 117,
+    "combination": [
+      "glimepiride",
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4472(E) Dated 07.09.2018"
+  },
+  {
+    "id": 118,
+    "combination": [
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4479(E) Dated 07.09.2018"
+  },
+  {
+    "id": 119,
+    "combination": [
+      "etodolac",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4706(E) Dated 07.09.2018"
+  },
+  {
+    "id": 120,
+    "combination": [
+      "nimesulide",
+      "diclofenac"
+    ],
+    "gazette_ref": "S.O.4380(E) Dated 07.09.2018"
+  },
+  {
+    "id": 121,
+    "combination": [
+      "nimesulide",
+      "cetirizine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4381(E) Dated 07.09.2018"
+  },
+  {
+    "id": 122,
+    "combination": [
+      "nimesulide",
+      "tizanidine"
+    ],
+    "gazette_ref": "S.O.4382(E) Dated 07.09.2018"
+  },
+  {
+    "id": 123,
+    "combination": [
+      "paracetamol",
+      "cetirizine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4383(E) Dated 07.09.2018"
+  },
+  {
+    "id": 124,
+    "combination": [
+      "diclofenac",
+      "tramadol",
+      "chlorzoxazone"
+    ],
+    "gazette_ref": "S.O.4384(E) Dated 07.09.2018"
+  },
+  {
+    "id": 125,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "domperidone"
+    ],
+    "gazette_ref": "S.O.4385(E) Dated 07.09.2018"
+  },
+  {
+    "id": 126,
+    "combination": [
+      "diclofenac",
+      "tramadol",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4386(E) Dated 07.09.2018"
+  },
+  {
+    "id": 127,
+    "combination": [
+      "diclofenac",
+      "paracetamol",
+      "chlorzoxazone",
+      "famotidine"
+    ],
+    "gazette_ref": "S.O.4387(E) Dated 07.09.2018"
+  },
+  {
+    "id": 128,
+    "combination": [
+      "naproxen",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4388(E) Dated 07.09.2018"
+  },
+  {
+    "id": 129,
+    "combination": [
+      "nimesulide",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4389(E) Dated 07.09.2018"
+  },
+  {
+    "id": 130,
+    "combination": [
+      "paracetamol",
+      "diclofenac",
+      "famotidine"
+    ],
+    "gazette_ref": "S.O.4390(E) Dated 07.09.2018"
+  },
+  {
+    "id": 131,
+    "combination": [
+      "nimesulide",
+      "pitofenone",
+      "fenpiverinium",
+      "benzyl alcohol"
+    ],
+    "gazette_ref": "S.O.4391(E) Dated 07.09.2018"
+  },
+  {
+    "id": 132,
+    "combination": [
+      "omeprazole",
+      "paracetamol",
+      "diclofenac"
+    ],
+    "gazette_ref": "S.O.4392(E) Dated 07.09.2018"
+  },
+  {
+    "id": 133,
+    "combination": [
+      "nimesulide",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4393(E) Dated 07.09.2018"
+  },
+  {
+    "id": 134,
+    "combination": [
+      "tamsulosin",
+      "diclofenac"
+    ],
+    "gazette_ref": "S.O.4394(E) Dated 07.09.2018"
+  },
+  {
+    "id": 135,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "chlorpheniramine",
+      "dextromethorphan",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4395(E) Dated 07.09.2018"
+  },
+  {
+    "id": 136,
+    "combination": [
+      "diclofenac",
+      "zinc carnosine"
+    ],
+    "gazette_ref": "S.O.4396(E) Dated 07.09.2018"
+  },
+  {
+    "id": 137,
+    "combination": [
+      "diclofenac",
+      "paracetamol",
+      "chlorpheniramine maleate",
+      "magnesium trisillicate"
+    ],
+    "gazette_ref": "S.O.4397(E) Dated 07.09.2018"
+  },
+  {
+    "id": 138,
+    "combination": [
+      "paracetamol",
+      "pseudoephedrine",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4398(E) Dated 07.09.2018"
+  },
+  {
+    "id": 139,
+    "combination": [
+      "phenyl butazone",
+      "sodium salicylate"
+    ],
+    "gazette_ref": "S.O.4399(E) Dated 07.09.2018"
+  },
+  {
+    "id": 140,
+    "combination": [
+      "lornoxicam",
+      "paracetamol",
+      "trypsin"
+    ],
+    "gazette_ref": "S.O.4400(E) Dated 07.09.2018"
+  },
+  {
+    "id": 141,
+    "combination": [
+      "paracetamol",
+      "mefenamic acid",
+      "ranitidine",
+      "dicyclomine"
+    ],
+    "gazette_ref": "S.O.4401(E) Dated 07.09.2018"
+  },
+  {
+    "id": 142,
+    "combination": [
+      "nimesulide",
+      "dicyclomine"
+    ],
+    "gazette_ref": "S.O.4402(E)"
+  },
+  {
+    "id": 143,
+    "combination": [
+      "heparin",
+      "diclofenac"
+    ],
+    "gazette_ref": "S.O.4403 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 144,
+    "combination": [
+      "glucosamine",
+      "methyl sulfonyl methane",
+      "vitamin d3",
+      "manganese",
+      "boron",
+      "copper",
+      "zinc"
+    ],
+    "gazette_ref": "S.O.4404 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 145,
+    "combination": [
+      "paracetamol",
+      "tapentadol"
+    ],
+    "gazette_ref": "S.O.4405 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 146,
+    "combination": [
+      "tranexamic acid",
+      "proanthocyanidin"
+    ],
+    "gazette_ref": "S.O.4406 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 147,
+    "combination": [
+      "lornoxicam",
+      "paracetamol",
+      "tramadol"
+    ],
+    "gazette_ref": "S.O.4407 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 148,
+    "combination": [
+      "lornoxicam",
+      "paracetamol",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4408 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 149,
+    "combination": [
+      "diclofenac",
+      "paracetamol",
+      "magnesium trisilicate"
+    ],
+    "gazette_ref": "S.O.4409 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 150,
+    "combination": [
+      "paracetamol",
+      "domperidone",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4410 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 151,
+    "combination": [
+      "serratiopeptidase",
+      "diclofenac",
+      "doxycycline"
+    ],
+    "gazette_ref": "S.O.4412 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 152,
+    "combination": [
+      "nimesulide",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4413 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 153,
+    "combination": [
+      "aceclofenac",
+      "paracetamol",
+      "famotidine"
+    ],
+    "gazette_ref": "S.O.4414 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 154,
+    "combination": [
+      "aceclofenac",
+      "zinc carnosine"
+    ],
+    "gazette_ref": "S.O.4415 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 155,
+    "combination": [
+      "paracetamol",
+      "disodium hydrogen citrate",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4416 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 156,
+    "combination": [
+      "paracetamol",
+      "dl methionine"
+    ],
+    "gazette_ref": "S.O.4417 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 157,
+    "combination": [
+      "disodium hydrogen citrate",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4418 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 158,
+    "combination": [
+      "paracetamol",
+      "caffeine",
+      "codeine phosphate"
+    ],
+    "gazette_ref": "S.O.4419 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 159,
+    "combination": [
+      "aceclofenac",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4420 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 160,
+    "combination": [
+      "diclofenac",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4421 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 161,
+    "combination": [
+      "azithromycin",
+      "cefixime"
+    ],
+    "gazette_ref": "S.O.4422 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 162,
+    "combination": [
+      "amoxicillin",
+      "dicloxacillin"
+    ],
+    "gazette_ref": "S.O.4423 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 163,
+    "combination": [
+      "azithromycin",
+      "levofloxacin"
+    ],
+    "gazette_ref": "S.O.4424 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 164,
+    "combination": [
+      "cefixime",
+      "linezolid"
+    ],
+    "gazette_ref": "S.O.4425 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 165,
+    "combination": [
+      "amoxicillin",
+      "cefixime",
+      "potassium clavulanic acid"
+    ],
+    "gazette_ref": "S.O.4426 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 166,
+    "combination": [
+      "ofloxacin",
+      "nitazoxanide"
+    ],
+    "gazette_ref": "S.O.4427 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 167,
+    "combination": [
+      "cefpodoxime proxetil",
+      "levofloxacin"
+    ],
+    "gazette_ref": "S.O.4428 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 168,
+    "combination": [
+      "levofloxacin",
+      "ornidazole",
+      "alpha tocopherol acetate"
+    ],
+    "gazette_ref": "S.O.4430 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 169,
+    "combination": [
+      "nimorazole",
+      "ofloxacin"
+    ],
+    "gazette_ref": "S.O.4431 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 170,
+    "combination": [
+      "azithromycin",
+      "ofloxacin"
+    ],
+    "gazette_ref": "S.O.4432 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 171,
+    "combination": [
+      "amoxycillin",
+      "tinidazole"
+    ],
+    "gazette_ref": "S.O.4433 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 172,
+    "combination": [
+      "doxycycline",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4434 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 173,
+    "combination": [
+      "cefixime",
+      "levofloxacin"
+    ],
+    "gazette_ref": "S.O.4435 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 174,
+    "combination": [
+      "ofloxacin",
+      "metronidazole",
+      "zinc acetate"
+    ],
+    "gazette_ref": "S.O.4436 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 175,
+    "combination": [
+      "diphenoxylate",
+      "atropine",
+      "furazolidone"
+    ],
+    "gazette_ref": "S.O.4437 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 176,
+    "combination": [
+      "fluconazole",
+      "azithromycin",
+      "ornidazole"
+    ],
+    "gazette_ref": "S.O.4438 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 177,
+    "combination": [
+      "ciprofloxacin",
+      "phenazopyridine"
+    ],
+    "gazette_ref": "S.O.4439 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 178,
+    "combination": [
+      "amoxycillin",
+      "dicloxacillin",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4440 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 179,
+    "combination": [
+      "azithromycin",
+      "cefpodoxime"
+    ],
+    "gazette_ref": "S.O.4441 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 180,
+    "combination": [
+      "lignocaine",
+      "clotrimazole",
+      "ofloxacin",
+      "beclomethasone"
+    ],
+    "gazette_ref": "S.O.4442 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 181,
+    "combination": [
+      "cefuroxime",
+      "linezolid"
+    ],
+    "gazette_ref": "S.O.4443 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 182,
+    "combination": [
+      "ofloxacin",
+      "ornidazole",
+      "zinc bis glycinate"
+    ],
+    "gazette_ref": "S.O.4444 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 183,
+    "combination": [
+      "metronidazole",
+      "norfloxacin"
+    ],
+    "gazette_ref": "S.O.4445 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 184,
+    "combination": [
+      "ciprofloxacin",
+      "fluticasone",
+      "clotrimazole",
+      "neomycin"
+    ],
+    "gazette_ref": "S.O.4446 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 185,
+    "combination": [
+      "metronidazole",
+      "tetracycline"
+    ],
+    "gazette_ref": "S.O.4447 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 186,
+    "combination": [
+      "cephalexin",
+      "neomycin",
+      "prednisolone"
+    ],
+    "gazette_ref": "S.O.4448 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 187,
+    "combination": [
+      "azithromycin",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4449 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 188,
+    "combination": [
+      "cilnidipine",
+      "metoprolol succinate",
+      "metoprolol tartrate"
+    ],
+    "gazette_ref": "S.O.4450 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 189,
+    "combination": [
+      "l-arginine",
+      "sildenafil"
+    ],
+    "gazette_ref": "S.O.4451 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 190,
+    "combination": [
+      "atorvastatin",
+      "vitamin d3",
+      "folic acid",
+      "vitamin b12",
+      "pyridoxine"
+    ],
+    "gazette_ref": "S.O.4452 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 191,
+    "combination": [
+      "metformin",
+      "atorvastatin"
+    ],
+    "gazette_ref": "S.O.4453 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 192,
+    "combination": [
+      "clindamycin",
+      "telmisartan"
+    ],
+    "gazette_ref": "S.O.4454 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 193,
+    "combination": [
+      "olmesartan",
+      "hydrochlorothiazide",
+      "chlorthalidone"
+    ],
+    "gazette_ref": "S.O.4455 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 194,
+    "combination": [
+      "l-5-methyl tetrahydrofolate calcium",
+      "escitalopram"
+    ],
+    "gazette_ref": "S.O.4456 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 195,
+    "combination": [
+      "paracetamol",
+      "promethazine"
+    ],
+    "gazette_ref": "S.O.4457 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 196,
+    "combination": [
+      "betahistine",
+      "ginkgo biloba extract",
+      "vinpocetine",
+      "piracetam"
+    ],
+    "gazette_ref": "S.O.4458 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 197,
+    "combination": [
+      "cetirizine",
+      "diethyl carbamazine"
+    ],
+    "gazette_ref": "S.O.4459 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 198,
+    "combination": [
+      "doxylamine",
+      "pyridoxine",
+      "mefenamic acid",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4460 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 199,
+    "combination": [
+      "drotaverine",
+      "clidinium",
+      "chlordiazepoxide"
+    ],
+    "gazette_ref": "S.O.4461 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 200,
+    "combination": [
+      "flupentixol",
+      "escitalopram"
+    ],
+    "gazette_ref": "S.O.4462 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 201,
+    "combination": [
+      "gabapentin",
+      "mecobalamin",
+      "pyridoxine",
+      "thiamine"
+    ],
+    "gazette_ref": "S.O.4463 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 202,
+    "combination": [
+      "imipramine",
+      "chlordiazepoxide",
+      "trifluoperazine",
+      "trihexyphenidyl"
+    ],
+    "gazette_ref": "S.O.4464 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 203,
+    "combination": [
+      "chlorpromazine",
+      "trihexyphenidyl"
+    ],
+    "gazette_ref": "S.O.4465 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 204,
+    "combination": [
+      "ursodeoxycholic acid",
+      "silymarin"
+    ],
+    "gazette_ref": "S.O.4466 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 205,
+    "combination": [
+      "metformin",
+      "pioglitazone",
+      "glimepiride"
+    ],
+    "gazette_ref": "S.O.4467 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 206,
+    "combination": [
+      "gliclazide",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4468 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 207,
+    "combination": [
+      "voglibose",
+      "metformin",
+      "chromium picolinate"
+    ],
+    "gazette_ref": "S.O.4469 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 208,
+    "combination": [
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4470 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 209,
+    "combination": [
+      "metformin",
+      "pioglitazone",
+      "glimepiride"
+    ],
+    "gazette_ref": "S.O.4473 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 210,
+    "combination": [
+      "metformin",
+      "pioglitazone",
+      "glimepiride"
+    ],
+    "gazette_ref": "S.O.4474 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 211,
+    "combination": [
+      "metformin",
+      "gliclazide",
+      "pioglitazone"
+    ],
+    "gazette_ref": "S.O.4475 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 212,
+    "combination": [
+      "voglibose",
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4476 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 213,
+    "combination": [
+      "metformin",
+      "bromocriptine"
+    ],
+    "gazette_ref": "S.O.4477 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 214,
+    "combination": [
+      "metformin",
+      "glimepiride",
+      "methylcobalamin"
+    ],
+    "gazette_ref": "S.O.4478 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 215,
+    "combination": [
+      "glimepiride",
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.815 (E) Dated 10.03.2016"
+  },
+  {
+    "id": 216,
+    "combination": [
+      "glipizide",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4480 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 217,
+    "combination": [
+      "pioglitazone",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4481 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 218,
+    "combination": [
+      "metformin",
+      "gliclazide",
+      "voglibose"
+    ],
+    "gazette_ref": "S.O.4482 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 219,
+    "combination": [
+      "chromium polynicotinate",
+      "metformin hydrochloride"
+    ],
+    "gazette_ref": "S.O.4483 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 220,
+    "combination": [
+      "metformin hydrochloride",
+      "gliclazide",
+      "pioglitazone",
+      "chromium polynicotinate"
+    ],
+    "gazette_ref": "S.O.4484 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 221,
+    "combination": [
+      "metformin",
+      "gliclazide",
+      "chromium polynicotinate"
+    ],
+    "gazette_ref": "S.O.4485 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 222,
+    "combination": [
+      "metformin",
+      "pioglitazone",
+      "glimepiride"
+    ],
+    "gazette_ref": "S.O.4486 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 223,
+    "combination": [
+      "metformin",
+      "pioglitazone"
+    ],
+    "gazette_ref": "S.O.4487 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 224,
+    "combination": [
+      "chloramphenicol",
+      "beclomethasone",
+      "clotrimazole",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.4488 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 225,
+    "combination": [
+      "chloramphenicol",
+      "ofloxacin",
+      "lignocaine",
+      "glycerine",
+      "propylene glycol"
+    ],
+    "gazette_ref": "S.O.4489 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 226,
+    "combination": [
+      "chloramphenicol",
+      "lignocaine",
+      "betamethasone",
+      "clotrimazole",
+      "ofloxacin"
+    ],
+    "gazette_ref": "S.O. (E) Dated 07.09.2018"
+  },
+  {
+    "id": 227,
+    "combination": [
+      "ofloxacin",
+      "clotrimazole",
+      "betamethasone",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.4491(E) Dated 07.09.2018"
+  },
+  {
+    "id": 228,
+    "combination": [
+      "gentamicin",
+      "clotrimazole",
+      "betamethasone",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.4492(E) Dated 07.09.2018"
+  },
+  {
+    "id": 229,
+    "combination": [
+      "clotrimazole",
+      "beclomethasone",
+      "ofloxacin",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.4493(E) Dated 07.09.2018"
+  },
+  {
+    "id": 230,
+    "combination": [
+      "beclomethasone",
+      "clotrimazole",
+      "chloramphenicol",
+      "gentamycin",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.4494(E) Dated 7.09.2018"
+  },
+  {
+    "id": 231,
+    "combination": [
+      "flunarizine",
+      "paracetamol",
+      "domperidone"
+    ],
+    "gazette_ref": "S.O.4495(E) Dated 07.09.2018"
+  },
+  {
+    "id": 232,
+    "combination": [
+      "rabeprazole",
+      "zinc carnosine"
+    ],
+    "gazette_ref": "S.O.4496(E) Dated 07.09.2018"
+  },
+  {
+    "id": 233,
+    "combination": [
+      "magaldrat",
+      "famotidine",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.4497(E) Dated 07.09.2018"
+  },
+  {
+    "id": 234,
+    "combination": [
+      "cyproheptadine",
+      "thiamine"
+    ],
+    "gazette_ref": "S.O.4498(E) Dated 07.09.2018"
+  },
+  {
+    "id": 235,
+    "combination": [
+      "magaldrate",
+      "ranitidine",
+      "pancreatin",
+      "domperidone"
+    ],
+    "gazette_ref": "S.O.4499(E) Dated 07.09.2018"
+  },
+  {
+    "id": 236,
+    "combination": [
+      "ranitidine",
+      "magaldrate",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.4500(E) Dated 07.09.2018"
+  },
+  {
+    "id": 237,
+    "combination": [
+      "magaldrate",
+      "papain",
+      "fungal diastase",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.4501(E) Dated 07.09.2018"
+  },
+  {
+    "id": 238,
+    "combination": [
+      "rabeprazole",
+      "zinc",
+      "domperidone"
+    ],
+    "gazette_ref": "S.O.4502(E) Dated 07.09.2018"
+  },
+  {
+    "id": 239,
+    "combination": [
+      "famotidine",
+      "oxytacaine",
+      "magaldrate"
+    ],
+    "gazette_ref": "S.O.4503(E) Dated 07.09.2018"
+  },
+  {
+    "id": 240,
+    "combination": [
+      "ranitidine",
+      "domperidone",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.4504(E) Dated 07.09.2018"
+  },
+  {
+    "id": 241,
+    "combination": [
+      "alginic acid",
+      "sodium bicarbonate",
+      "aluminium hydroxide",
+      "magnesium hydroxide"
+    ],
+    "gazette_ref": "S.O.4505(E) Dated 07.09.2018"
+  },
+  {
+    "id": 242,
+    "combination": [
+      "clidinium",
+      "paracetamol",
+      "dicyclomine",
+      "dimethicone"
+    ],
+    "gazette_ref": "S.O.4506(E) Dated 07.09.2018"
+  },
+  {
+    "id": 243,
+    "combination": [
+      "furazolidone",
+      "metronidazole",
+      "loperamide"
+    ],
+    "gazette_ref": "S.O.4507(E) Dated 07.09.2018"
+  },
+  {
+    "id": 244,
+    "combination": [
+      "rabeprazole",
+      "diclofenac",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4508(E) Dated 07.09.2018"
+  },
+  {
+    "id": 245,
+    "combination": [
+      "ranitidine",
+      "magaldrate"
+    ],
+    "gazette_ref": "S.O.4509(E) Dated 07.09.2018"
+  },
+  {
+    "id": 246,
+    "combination": [
+      "norfloxacin",
+      "metronidazole",
+      "zinc acetate"
+    ],
+    "gazette_ref": "S.O.4510(E) Dated 07.09.2018"
+  },
+  {
+    "id": 247,
+    "combination": [
+      "zinc carnosine",
+      "oxetacaine"
+    ],
+    "gazette_ref": "S.O.4511(E) Dated 07.09.2018"
+  },
+  {
+    "id": 248,
+    "combination": [
+      "oxetacaine",
+      "magaldrate",
+      "famotidine"
+    ],
+    "gazette_ref": "S.O.4512(E) Dated 07.09.2018"
+  },
+  {
+    "id": 249,
+    "combination": [
+      "pantoprazole",
+      "zinc carnosine"
+    ],
+    "gazette_ref": "S.O.4513(E) Dated 07.09.2018"
+  },
+  {
+    "id": 250,
+    "combination": [
+      "zinc carnosine",
+      "magnesium hydroxide",
+      "aluminium hydroxide",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.4514(E) Dated 07.09.2018"
+  },
+  {
+    "id": 251,
+    "combination": [
+      "zinc carnosine",
+      "sucralfate"
+    ],
+    "gazette_ref": "S.O.4515(E) Dated 07.09.2018"
+  },
+  {
+    "id": 252,
+    "combination": [
+      "mebeverine",
+      "streptococcus faecalis",
+      "clostridium butyricum",
+      "bacillus mesentricus",
+      "lactic acid bacillus"
+    ],
+    "gazette_ref": "S.O.4516(E) Dated 07.09.2018"
+  },
+  {
+    "id": 253,
+    "combination": [
+      "clindamycin",
+      "clotrimazole",
+      "lactic acid bacillus"
+    ],
+    "gazette_ref": "S.O.4517(E) Dated 07.09.2018"
+  },
+  {
+    "id": 254,
+    "combination": [
+      "sildenafil",
+      "estradiol valerate"
+    ],
+    "gazette_ref": "S.O.4518(E) Dated 07.09.2018"
+  },
+  {
+    "id": 255,
+    "combination": [
+      "clomifene citrate",
+      "ubidecarenone",
+      "zinc",
+      "folic acid",
+      "methylcobalamin",
+      "pyridoxine",
+      "lycopene",
+      "selenium",
+      "levocarnitine tartrate",
+      "l-arginine"
+    ],
+    "gazette_ref": "S.O.4519(E) Dated 07.09.2018"
+  },
+  {
+    "id": 256,
+    "combination": [
+      "thyroxine",
+      "pyridoxine",
+      "folic acid"
+    ],
+    "gazette_ref": "S.O.4520(E) Dated 07.09.2018"
+  },
+  {
+    "id": 257,
+    "combination": [
+      "gentamycin",
+      "dexamethasone",
+      "chloramphenicol",
+      "tobramycin",
+      "ofloxacin"
+    ],
+    "gazette_ref": "S.O.4521(E) Dated 07.09.2018"
+  },
+  {
+    "id": 258,
+    "combination": [
+      "dextromethorphan",
+      "levocetirizine",
+      "phenylephrine",
+      "zinc"
+    ],
+    "gazette_ref": "S.O.4522(E) Dated 07.09.2018"
+  },
+  {
+    "id": 259,
+    "combination": [
+      "nimesulide",
+      "loratadine",
+      "phenylephrine",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4523(E) Dated 07.09.2018"
+  },
+  {
+    "id": 260,
+    "combination": [
+      "bromhexine",
+      "phenylephrine",
+      "chlorepheniramine maleate"
+    ],
+    "gazette_ref": "S.O.4524(E) Dated 07.09.2018"
+  },
+  {
+    "id": 261,
+    "combination": [
+      "dextromethorphan",
+      "bromhexine",
+      "guaiphenesin"
+    ],
+    "gazette_ref": "S.O.4525(E) Dated 07.09.2018"
+  },
+  {
+    "id": 262,
+    "combination": [
+      "paracetamol",
+      "loratadine",
+      "phenylephrine",
+      "dextromethorphan",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4526(E) Dated 07.09.2018"
+  },
+  {
+    "id": 263,
+    "combination": [
+      "phenylephrine",
+      "caffeine",
+      "levocetirizine"
+    ],
+    "gazette_ref": "S.O.4527 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 264,
+    "combination": [
+      "azithromycin",
+      "acebrophyline"
+    ],
+    "gazette_ref": "S.O.4528 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 265,
+    "combination": [
+      "diphenhydramine",
+      "terpine",
+      "ammonium chloride",
+      "sodium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4529 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 266,
+    "combination": [
+      "nimesulide",
+      "paracetamol",
+      "cetirizine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4530 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 267,
+    "combination": [
+      "paracetamol",
+      "loratadine",
+      "dextromethorphan",
+      "pseudoephedrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4531 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 268,
+    "combination": [
+      "cetirizine",
+      "phenylephrine",
+      "paracetamol",
+      "zinc gluconate"
+    ],
+    "gazette_ref": "S.O.4533 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 269,
+    "combination": [
+      "ambroxol",
+      "guaiphenesin",
+      "ammonium chloride",
+      "phenylephrine",
+      "chlorpheniramine maleate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4534 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 270,
+    "combination": [
+      "dextromethorphan",
+      "bromhexine",
+      "chlorpheniramine maleate",
+      "guaiphenesin"
+    ],
+    "gazette_ref": "S.O.4535 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 271,
+    "combination": [
+      "levocetirizine",
+      "ambroxol",
+      "phenylephrine",
+      "guaiphenesin"
+    ],
+    "gazette_ref": "S.O.4536 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 272,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "chlorpheniramine maleate"
+    ],
+    "gazette_ref": "S.O.4537 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 273,
+    "combination": [
+      "cetirizine",
+      "ambroxol",
+      "guaiphenesin",
+      "ammonium chloride",
+      "phenylephrine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4538 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 274,
+    "combination": [
+      "chlorpheniramine",
+      "phenylephrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4539 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 275,
+    "combination": [
+      "dextromethorphan",
+      "triprolidine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4540 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 276,
+    "combination": [
+      "terpinhydrate",
+      "dextromethorphan",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4541 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 277,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "zinc gluconate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4542 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 278,
+    "combination": [
+      "chlorpheniramine",
+      "codeine",
+      "sodium citrate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4543 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 279,
+    "combination": [
+      "enrofloxacin",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4544 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 280,
+    "combination": [
+      "bromhexine",
+      "dextromethorphan",
+      "phenylephrine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4545 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 281,
+    "combination": [
+      "levofloxacin",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4546 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 282,
+    "combination": [
+      "levocetirizine",
+      "ranitidine"
+    ],
+    "gazette_ref": "S.O.4547 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 283,
+    "combination": [
+      "levocetirizine",
+      "phenylephrine",
+      "ambroxol",
+      "guaiphenesin",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4548 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 284,
+    "combination": [
+      "cetirizine",
+      "dextromethorphan",
+      "phenylephrine",
+      "zinc gluconate",
+      "paracetamol",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4549 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 285,
+    "combination": [
+      "paracetamol",
+      "pseudoephedrine",
+      "dextromethorphan",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4550 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 286,
+    "combination": [
+      "diphenhydramine",
+      "guaiphenesin",
+      "ammonium chloride",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4551 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 287,
+    "combination": [
+      "chlorpheniramine",
+      "dextromethorphan",
+      "phenylephrine",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4552 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 288,
+    "combination": [
+      "dextromethorphan",
+      "promethazine"
+    ],
+    "gazette_ref": "S.O.4553 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 289,
+    "combination": [
+      "diethylcarbamazine citrate",
+      "cetirizine",
+      "guaiphenesin"
+    ],
+    "gazette_ref": "S.O.4554 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 290,
+    "combination": [
+      "pseudoephedrine",
+      "dextromethorphan",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4555 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 291,
+    "combination": [
+      "chlorpheniramine",
+      "phenylephrine",
+      "dextromethorphan",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4556 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 292,
+    "combination": [
+      "ambroxol",
+      "terbutaline",
+      "dextromethorphan"
+    ],
+    "gazette_ref": "S.O.4557 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 293,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "guaiphenesin"
+    ],
+    "gazette_ref": "S.O.4558 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 294,
+    "combination": [
+      "terbutaline",
+      "bromhexine",
+      "guaiphenesin",
+      "dextromethorphan"
+    ],
+    "gazette_ref": "S.O.4559 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 295,
+    "combination": [
+      "dextromethorphan",
+      "triprolidine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4560 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 296,
+    "combination": [
+      "paracetamol",
+      "dextromethorphan",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4561 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 297,
+    "combination": [
+      "pholcodine",
+      "phenylephrine",
+      "promethazine"
+    ],
+    "gazette_ref": "S.O.4562 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 298,
+    "combination": [
+      "codeine",
+      "levocetirizine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4563 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 299,
+    "combination": [
+      "dextromethorphan",
+      "ambroxol",
+      "guaiphenesin",
+      "phenylephrine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O. (E) Dated 07.09.2018"
+  },
+  {
+    "id": 300,
+    "combination": [
+      "cetirizine",
+      "phenylephrine",
+      "dextromethorphan",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4565 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 301,
+    "combination": [
+      "roxithromycin",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4566 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 302,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "triprolidine"
+    ],
+    "gazette_ref": "S.O.4567 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 303,
+    "combination": [
+      "acetaminophen",
+      "loratadine",
+      "ambroxol",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4568 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 304,
+    "combination": [
+      "cetirizine",
+      "acetaminophen",
+      "dextromethorphan",
+      "phenylephrine",
+      "zinc gluconate"
+    ],
+    "gazette_ref": "S.O.4569 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 305,
+    "combination": [
+      "diphenhydramine",
+      "guaifenesin",
+      "bromhexine",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4570 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 306,
+    "combination": [
+      "cetirizine",
+      "dextromethorphan",
+      "zinc gluconate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4571 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 307,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "desloratadine",
+      "zinc gluconate",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4572 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 308,
+    "combination": [
+      "levocetirizine",
+      "montelukast",
+      "acebrophylline"
+    ],
+    "gazette_ref": "S.O.4573 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 309,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4574 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 310,
+    "combination": [
+      "dextromethorphan",
+      "bromhexine",
+      "guaiphenesin",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4575 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 311,
+    "combination": [
+      "acrivastine",
+      "paracetamol",
+      "caffeine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4576 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 312,
+    "combination": [
+      "naphazoline",
+      "carboxy methyl cellulose",
+      "menthol",
+      "camphor",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4577 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 313,
+    "combination": [
+      "dextromethorphan",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4578 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 314,
+    "combination": [
+      "nimesulide",
+      "paracetamol",
+      "levocetirizine",
+      "phenylephrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4579 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 315,
+    "combination": [
+      "terbutaline",
+      "ambroxol",
+      "guaiphenesin",
+      "zinc",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4580 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 316,
+    "combination": [
+      "codeine",
+      "chlorpheniramine",
+      "alcohol"
+    ],
+    "gazette_ref": "S.O.4581 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 317,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "guaifenesin",
+      "triprolidine"
+    ],
+    "gazette_ref": "S.O.4582 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 318,
+    "combination": [
+      "diethylcarbamazine",
+      "cetirizine",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4583 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 319,
+    "combination": [
+      "ethylmorphine",
+      "noscapine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4584 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 320,
+    "combination": [
+      "cetirizine",
+      "dextromethorphan",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4585 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 321,
+    "combination": [
+      "ambroxol",
+      "guaifenesin",
+      "phenylephrine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4586 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 322,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "chlorpheniramine",
+      "zinc gluconate"
+    ],
+    "gazette_ref": "S.O.4587 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 323,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "cetirizine",
+      "paracetamol",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4588 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 324,
+    "combination": [
+      "levocetirizine",
+      "dextromethorphan",
+      "zinc"
+    ],
+    "gazette_ref": "S.O.4589 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 325,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "levocetirizine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4590 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 326,
+    "combination": [
+      "chlorpheniramine",
+      "ammonium chloride",
+      "sodium chloride"
+    ],
+    "gazette_ref": "S.O.4591 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 327,
+    "combination": [
+      "paracetamol",
+      "dextromethorphan",
+      "bromhexine",
+      "phenylephrine",
+      "diphenhydramine"
+    ],
+    "gazette_ref": "S.O.4592 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 328,
+    "combination": [
+      "salbutamol",
+      "bromhexine",
+      "guaiphenesin",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4593 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 329,
+    "combination": [
+      "chlorpheniramine",
+      "ammonium chloride",
+      "noscapine",
+      "sodium citrate"
+    ],
+    "gazette_ref": "S.O.4594 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 330,
+    "combination": [
+      "cetirizine",
+      "dextromethorphan",
+      "bromhexine",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.4595 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 331,
+    "combination": [
+      "diethylcarbamazine",
+      "chlorpheniramine",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.4596 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 332,
+    "combination": [
+      "ketotifen",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4597 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 333,
+    "combination": [
+      "terbutaline",
+      "bromhexine",
+      "etofylline"
+    ],
+    "gazette_ref": "S.O.4598 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 334,
+    "combination": [
+      "ketotifen",
+      "theophylline"
+    ],
+    "gazette_ref": "S.O.4599 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 335,
+    "combination": [
+      "ambroxol",
+      "salbutamol",
+      "theophylline"
+    ],
+    "gazette_ref": "S.O.4600 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 336,
+    "combination": [
+      "cetirizine",
+      "nimesulide",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4601 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 337,
+    "combination": [
+      "chloropheniramine",
+      "phenylephrine",
+      "paracetamol",
+      "zinc gluconate"
+    ],
+    "gazette_ref": "S.O.4602 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 338,
+    "combination": [
+      "acetaminophen",
+      "guaifenesin",
+      "dextromethorphan",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4603 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 339,
+    "combination": [
+      "cetirizine",
+      "dextromethorphan",
+      "phenylephrine",
+      "tulsi"
+    ],
+    "gazette_ref": "S.O.4604 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 340,
+    "combination": [
+      "cetirizine",
+      "phenylephrine",
+      "paracetamol",
+      "ambroxol",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4605 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 341,
+    "combination": [
+      "guaifenesin",
+      "dextromethorphan"
+    ],
+    "gazette_ref": "S.O.4606 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 342,
+    "combination": [
+      "levocetirizine",
+      "paracetamol",
+      "phenylephrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4607 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 343,
+    "combination": [
+      "ketotifen",
+      "levocetirizine"
+    ],
+    "gazette_ref": "S.O.4608 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 344,
+    "combination": [
+      "paracetamol",
+      "levocetirizine",
+      "phenylephrine",
+      "zinc gluconate"
+    ],
+    "gazette_ref": "S.O.4609 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 345,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "triprolidine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4610 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 346,
+    "combination": [
+      "caffeine",
+      "paracetamol",
+      "phenylephrine",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4611 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 347,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.4612 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 348,
+    "combination": [
+      "ambroxol",
+      "levocetirizine",
+      "phenylephrine",
+      "guaifenesin",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4613 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 349,
+    "combination": [
+      "pseudoephedrine",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.4614 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 350,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4615 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 351,
+    "combination": [
+      "salbutamol",
+      "aminophylline",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.4617 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 352,
+    "combination": [
+      "salbutamol",
+      "theophylline",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4618 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 353,
+    "combination": [
+      "chlorpheniramine",
+      "dextromethorphan",
+      "guaifenesin",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4619 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 354,
+    "combination": [
+      "caffeine",
+      "paracetamol",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4620 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 355,
+    "combination": [
+      "ammonium chloride",
+      "dextromethorphan",
+      "cetirizine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4621 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 356,
+    "combination": [
+      "dextromethorphan",
+      "paracetamol",
+      "cetirizine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4622 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 357,
+    "combination": [
+      "chlorpheniramine",
+      "terpin",
+      "antimony potassium tartrate",
+      "ammonium chloride",
+      "sodium citrate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4623 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 358,
+    "combination": [
+      "terbutaline sulphate",
+      "etofylline",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4624 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 359,
+    "combination": [
+      "paracetamol",
+      "codeine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4625 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 360,
+    "combination": [
+      "paracetamol",
+      "pseudoephedrine",
+      "cetirizine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4626 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 361,
+    "combination": [
+      "chlorpheniramine",
+      "ammonium chloride",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4627 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 362,
+    "combination": [
+      "n-acetyl cysteine",
+      "ambroxol",
+      "phenylephrine",
+      "levocetirizine"
+    ],
+    "gazette_ref": "S.O.4628 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 363,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "tripolidine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4629 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 364,
+    "combination": [
+      "salbutamol",
+      "cetirizine",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4630 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 365,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "bromhexine",
+      "guaifenesin",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4631 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 366,
+    "combination": [
+      "nimesulide",
+      "cetirizine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4632 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 367,
+    "combination": [
+      "naphazoline",
+      "chlorpheniramine",
+      "zinc sulphate",
+      "boric acid",
+      "sodium chloride",
+      "chlorobutol"
+    ],
+    "gazette_ref": "S.O.4633 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 368,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "guaifenesin",
+      "cetirizine",
+      "acetaminophen"
+    ],
+    "gazette_ref": "S.O.4634 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 369,
+    "combination": [
+      "guaifenesin",
+      "bromhexine",
+      "chlorpheniramine",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4635 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 370,
+    "combination": [
+      "chlorpheniramine",
+      "ammonium chloride",
+      "chloroform",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4636 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 371,
+    "combination": [
+      "salbutamol",
+      "choline theophylinate",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4637 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 372,
+    "combination": [
+      "pseudoephedrine",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4638 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 373,
+    "combination": [
+      "cetirizine",
+      "phenylephrine",
+      "paracetamol",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O. (E) Dated 07.09.2018"
+  },
+  {
+    "id": 374,
+    "combination": [
+      "dextromethorphan",
+      "cetirizine",
+      "guaifenesin",
+      "ammonium chloride"
+    ],
+    "gazette_ref": "S.O.4640 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 375,
+    "combination": [
+      "ambroxol",
+      "salbutamol",
+      "choline theophyllinate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4641 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 376,
+    "combination": [
+      "paracetamol",
+      "chlorpheniramine",
+      "ambroxol",
+      "guaifenesin",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4642 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 377,
+    "combination": [
+      "chlorpheniramine",
+      "vasaka",
+      "tolubalsam",
+      "ammonium chloride",
+      "sodium citrate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4643 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 378,
+    "combination": [
+      "bromhexine",
+      "cetirizine",
+      "phenylephrine",
+      "guaifenesin",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4644 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 379,
+    "combination": [
+      "dextromethorphan",
+      "ambroxol",
+      "ammonium chloride",
+      "chlorpheniramine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4645 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 380,
+    "combination": [
+      "dextromethorphan",
+      "phenylephrine",
+      "cetirizine",
+      "zinc",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4646 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 381,
+    "combination": [
+      "terbutaline",
+      "n-acetyl l-cysteine",
+      "guaifenesin"
+    ],
+    "gazette_ref": "S.O.4647 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 382,
+    "combination": [
+      "calcium gluconate",
+      "levocetirizine"
+    ],
+    "gazette_ref": "S.O.4648 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 383,
+    "combination": [
+      "paracetamol",
+      "levocetirizine",
+      "pseudoephedrine"
+    ],
+    "gazette_ref": "S.O.4649 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 384,
+    "combination": [
+      "salbutamol",
+      "choline theophylinate",
+      "carbocisteine"
+    ],
+    "gazette_ref": "S.O.4650 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 385,
+    "combination": [
+      "chlorpheniramine",
+      "vitamin c"
+    ],
+    "gazette_ref": "S.O.4651 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 386,
+    "combination": [
+      "calcium gluconate",
+      "chlorpheniramine",
+      "vitamin c"
+    ],
+    "gazette_ref": "S.O.4652 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 387,
+    "combination": [
+      "chlorpheniramine",
+      "paracetamol",
+      "pseudoephedrine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4653 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 388,
+    "combination": [
+      "guaifenesin",
+      "bromhexine",
+      "chlorpheniramine",
+      "phenylephrine",
+      "paracetamol",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.4654 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 389,
+    "combination": [
+      "paracetamol",
+      "pheniramine"
+    ],
+    "gazette_ref": "S.O.4655 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 390,
+    "combination": [
+      "betamethasone",
+      "fusidic acid",
+      "gentamycin",
+      "tolnaftate",
+      "iodochlorhydroxyquinoline"
+    ],
+    "gazette_ref": "S.O.4656 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 391,
+    "combination": [
+      "clobetasol",
+      "ofloxacin",
+      "miconazole",
+      "zinc sulphate"
+    ],
+    "gazette_ref": "S.O.4657 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 392,
+    "combination": [
+      "clobetasole",
+      "gentamicin",
+      "miconazole",
+      "zinc sulphate"
+    ],
+    "gazette_ref": "S.O.4658 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 393,
+    "combination": [
+      "levocetirizine",
+      "ambroxol",
+      "phenylephrine",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4659 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 394,
+    "combination": [
+      "permethrin",
+      "cetrimide",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4660 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 395,
+    "combination": [
+      "beclomethasone",
+      "clotimazole",
+      "neomycin",
+      "iodochlorohydroxyquinone"
+    ],
+    "gazette_ref": "S.O.4661 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 396,
+    "combination": [
+      "neomycin",
+      "doxycycline"
+    ],
+    "gazette_ref": "S.O.4662 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 397,
+    "combination": [
+      "ciprofloxacin",
+      "fluocinolone",
+      "clotrimazole",
+      "neomycin",
+      "chlorocresol"
+    ],
+    "gazette_ref": "S.O.4663 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 398,
+    "combination": [
+      "clobetasol",
+      "ofloxacin",
+      "ketoconazole",
+      "zinc sulphate"
+    ],
+    "gazette_ref": "S.O.4664 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 399,
+    "combination": [
+      "betamethasone",
+      "gentamicin",
+      "tolnaftate",
+      "iodochlorhydroxyquinoline"
+    ],
+    "gazette_ref": "S.O.4665 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 400,
+    "combination": [
+      "clobetasol",
+      "gentamicin",
+      "tolnaftate",
+      "idochlorhydroxyquinone",
+      "ketoconazole"
+    ],
+    "gazette_ref": "S.O.4666 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 401,
+    "combination": [
+      "allantoin",
+      "dimethieone",
+      "urea",
+      "propylene",
+      "glycerin",
+      "liquid paraffin"
+    ],
+    "gazette_ref": "S.O.4667 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 402,
+    "combination": [
+      "acriflavine",
+      "thymol",
+      "cetrimide"
+    ],
+    "gazette_ref": "S.O.4668 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 403,
+    "combination": [
+      "betamethasone",
+      "neomycin",
+      "tolnaftate",
+      "iodochloro hydroxy quinoline",
+      "chlorocresol"
+    ],
+    "gazette_ref": "S.O.4669 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 404,
+    "combination": [
+      "clobetasol",
+      "neomycin",
+      "miconazole",
+      "clotrimazole"
+    ],
+    "gazette_ref": "S.O.4670 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 405,
+    "combination": [
+      "ketoconazole",
+      "tea tree oil",
+      "allantoin",
+      "inc oxide",
+      "aloe vera",
+      "jojoba oil",
+      "lavander oil",
+      "soap noodles"
+    ],
+    "gazette_ref": "S.O.4671 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 406,
+    "combination": [
+      "clobetasol",
+      "ofloxacin",
+      "ornidazole",
+      "terbinafine"
+    ],
+    "gazette_ref": "S.O.4672 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 407,
+    "combination": [
+      "clobetasol",
+      "neomycin",
+      "miconazole",
+      "zinc sulphate"
+    ],
+    "gazette_ref": "S.O.4673 (E) Dated 07.09.2018"
+  },
+  {
+    "id": 408,
+    "combination": [
+      "neomycin",
+      "tolnaftate",
+      "iodochlorhydroxyquinoline",
+      "chlorocresol"
+    ],
+    "gazette_ref": "S.O.4674(E) Dated 07.09.2018"
+  },
+  {
+    "id": 409,
+    "combination": [
+      "betamethasone",
+      "gentamycin",
+      "zinc sulphate",
+      "clotrimazole",
+      "chlorocresol"
+    ],
+    "gazette_ref": "S.O.4675(E) Dated 07.09.2018"
+  },
+  {
+    "id": 410,
+    "combination": [
+      "borax",
+      "boric acid",
+      "naphazoline",
+      "menthol",
+      "camphor",
+      "methyl hydroxy benzoate"
+    ],
+    "gazette_ref": "S.O.4676(E) Dated 07.09.2018"
+  },
+  {
+    "id": 411,
+    "combination": [
+      "bromhexine",
+      "dextromethorphan"
+    ],
+    "gazette_ref": "S.O.4677(E) Dated 07.09.2018"
+  },
+  {
+    "id": 412,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "bromhexine"
+    ],
+    "gazette_ref": "S.O.4678(E) Dated 07.09.2018"
+  },
+  {
+    "id": 413,
+    "combination": [
+      "menthol",
+      "anesthetic ether"
+    ],
+    "gazette_ref": "S.O.4679(E) Dated 07.09.2018"
+  },
+  {
+    "id": 414,
+    "combination": [
+      "dextromethorphan",
+      "chlorpheniramine",
+      "ammonium chloride",
+      "sodium citrate",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4680(E) Dated 07.09.2018"
+  },
+  {
+    "id": 415,
+    "combination": [
+      "ergotamine tartrate",
+      "belladona dry extract",
+      "caffeine",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4681(E) Dated 07.09.2018"
+  },
+  {
+    "id": 416,
+    "combination": [
+      "gliclazide",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4682(E) Dated 07.09.2018"
+  },
+  {
+    "id": 417,
+    "combination": [
+      "paracetamol",
+      "ambroxol",
+      "phenylephrine",
+      "chlorpheniramine"
+    ],
+    "gazette_ref": "S.O.4683(E) Dated 07.09.2018"
+  },
+  {
+    "id": 418,
+    "combination": [
+      "ofloxacin",
+      "ornidazole"
+    ],
+    "gazette_ref": "S.O.4684(E) Dated 07.09.2018"
+  },
+  {
+    "id": 419,
+    "combination": [
+      "albuterol",
+      "etofylline",
+      "bromhexine",
+      "menthol"
+    ],
+    "gazette_ref": "S.O.4685(E) Dated 07.09.2018"
+  },
+  {
+    "id": 420,
+    "combination": [
+      "albuterol",
+      "bromhexine",
+      "theophylline"
+    ],
+    "gazette_ref": "S.O.4686(E) Dated 07.09.2018"
+  },
+  {
+    "id": 421,
+    "combination": [
+      "paracetamol",
+      "phenylephrine",
+      "levocetirizine",
+      "sodium citrate"
+    ],
+    "gazette_ref": "S.O.4688(E) Dated 07.09.2018"
+  },
+  {
+    "id": 422,
+    "combination": [
+      "guaifenesin",
+      "diphenhydramine",
+      "bromhexine",
+      "phenylephrine"
+    ],
+    "gazette_ref": "S.O.4690(E) Dated 07.09.2018"
+  },
+  {
+    "id": 423,
+    "combination": [
+      "dried aluminium hydroxide gel",
+      "propantheline bromide",
+      "diazepam"
+    ],
+    "gazette_ref": "S.O.4691(E) Dated 07.09.2018"
+  },
+  {
+    "id": 424,
+    "combination": [
+      "bromhexine",
+      "phenylephrine",
+      "chlorpheniramine",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.4692(E) Dated 07.09.2018"
+  },
+  {
+    "id": 425,
+    "combination": [
+      "beclomethasone",
+      "clotrimazole",
+      "gentamicin",
+      "iodo-chlorhydroxyquinoline"
+    ],
+    "gazette_ref": "S.O.4693(E) Dated 07.09.2018"
+  },
+  {
+    "id": 426,
+    "combination": [
+      "telmisartan",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4694(E) Dated 07.09.2018"
+  },
+  {
+    "id": 427,
+    "combination": [
+      "ammonium citrate",
+      "vitamin b12",
+      "folic acid",
+      "zinc sulphate"
+    ],
+    "gazette_ref": "S.O.4695(E) Dated 07.09.2018"
+  },
+  {
+    "id": 428,
+    "combination": [
+      "levo thyroxine",
+      "pyridoxine",
+      "nicotinamide"
+    ],
+    "gazette_ref": "S.O.4696(E) Dated 07.09.2018"
+  },
+  {
+    "id": 429,
+    "combination": [
+      "benfotiamine",
+      "metformin"
+    ],
+    "gazette_ref": "S.O.4697(E) Dated 07.09.2018"
+  },
+  {
+    "id": 430,
+    "combination": [
+      "thyroid",
+      "thiamine",
+      "riboflavin",
+      "pyridoxine",
+      "calcium pantothenate",
+      "tocopheryl acetate",
+      "nicotinamide"
+    ],
+    "gazette_ref": "S.O.4698(E) Dated 07.09.2018"
+  },
+  {
+    "id": 431,
+    "combination": [
+      "ascorbic acid",
+      "menadione sodium bisulphate",
+      "rutin",
+      "dibasic calcium phosphate",
+      "adrenochrome mono semi carbazone"
+    ],
+    "gazette_ref": "S.O.4699(E) Dated 07.09.2018"
+  },
+  {
+    "id": 432,
+    "combination": [
+      "phenylephrine",
+      "chlorpheniramine",
+      "paracetamol",
+      "bromhexine",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.4700(E) Dated 07.09.2018"
+  },
+  {
+    "id": 433,
+    "combination": [
+      "clotrimazole",
+      "beclomethasone",
+      "lignocaine",
+      "ofloxacin",
+      "acetic acid",
+      "sodium methyl paraben",
+      "propyl paraben"
+    ],
+    "gazette_ref": "S.O.4701(E) Dated 07.09.2018"
+  },
+  {
+    "id": 434,
+    "combination": [
+      "nimesulide",
+      "levocetrizine"
+    ],
+    "gazette_ref": "S.O.4702(E) Dated 07.09.2018"
+  },
+  {
+    "id": 435,
+    "combination": [
+      "ofloxacin",
+      "ornidazole"
+    ],
+    "gazette_ref": "S.O.4703(E) Dated 07.09.2018"
+  },
+  {
+    "id": 436,
+    "combination": [
+      "gemifloxacin",
+      "ambroxol"
+    ],
+    "gazette_ref": "S.O.4704(E) Dated 07.09.2018"
+  },
+  {
+    "id": 437,
+    "combination": [
+      "glucosamin",
+      "ibuprofen"
+    ],
+    "gazette_ref": "S.O.4705(E) Dated 07.09.2018"
+  },
+  {
+    "id": 438,
+    "combination": [
+      "5-bromosalicyl-4-chloranilide",
+      "salicylic acid"
+    ],
+    "gazette_ref": "S.O.180(E) Dated 11.01.2019"
+  },
+  {
+    "id": 439,
+    "combination": [
+      "activated charcoal",
+      "fungal diastase",
+      "lactic acid"
+    ],
+    "gazette_ref": "S.O.181(E) Dated 11.01.2019"
+  },
+  {
+    "id": 440,
+    "combination": [
+      "allobarbitone",
+      "phospho-dimethyl-isopropyl-pyrazolone"
+    ],
+    "gazette_ref": "S.O.182(E) Dated 11.01.2019"
+  },
+  {
+    "id": 441,
+    "combination": [
+      "artesunate",
+      "arteether",
+      "artemether"
+    ],
+    "gazette_ref": "S.O.183(E) Dated 11.01.2019"
+  },
+  {
+    "id": 442,
+    "combination": [
+      "atorvastatin",
+      "acetyl salicylic acid",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.184(E) Dated 11.01.2019"
+  },
+  {
+    "id": 443,
+    "combination": [
+      "chlormezanone",
+      "paracetamol",
+      "diclofenac sodium"
+    ],
+    "gazette_ref": "S.O.185(E) Dated 11.01.2019"
+  },
+  {
+    "id": 444,
+    "combination": [
+      "acetamol",
+      "ibuprofen"
+    ],
+    "gazette_ref": "S.O.186 (E) 11.01.2019"
+  },
+  {
+    "id": 445,
+    "combination": [
+      "chlorzoxazone",
+      "ibuprofen",
+      "paracetamol",
+      "diclofenac",
+      "oxyphenbutazone",
+      "magnesium hydroxide"
+    ],
+    "gazette_ref": "S.O.187 (E) 11.01.2019"
+  },
+  {
+    "id": 446,
+    "combination": [
+      "chlorzoxazone",
+      "paracetamol",
+      "ibuprofen",
+      "diclofenac sodium"
+    ],
+    "gazette_ref": "S.O.188 (E) 11.01.2019"
+  },
+  {
+    "id": 447,
+    "combination": [
+      "ciprofloxacin",
+      "tinidazole",
+      "dicyclomine"
+    ],
+    "gazette_ref": "S.O.189 (E) 11.01.2019"
+  },
+  {
+    "id": 448,
+    "combination": [
+      "dicyclomine",
+      "dextromethorphan",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.190 (E) 11.01.2019"
+  },
+  {
+    "id": 449,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "chlordiazepoxide"
+    ],
+    "gazette_ref": "S.O.191 (E) 11.01.2019"
+  },
+  {
+    "id": 450,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "phenylisopropyl pyrazolone"
+    ],
+    "gazette_ref": "S.O.192 (E) 11.01.2019"
+  },
+  {
+    "id": 451,
+    "combination": [
+      "dicyclomine",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.193 (E) 11.01.2019"
+  },
+  {
+    "id": 452,
+    "combination": [
+      "ibuprofen",
+      "colchicine"
+    ],
+    "gazette_ref": "S.O.194 (E) 11.01.2019"
+  },
+  {
+    "id": 453,
+    "combination": [
+      "ibuprofen",
+      "dextropropoxyphene",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.195 (E) 11.01.2019"
+  },
+  {
+    "id": 454,
+    "combination": [
+      "ibuprofen",
+      "paracetamol",
+      "colchicine"
+    ],
+    "gazette_ref": "S.O.196 (E) 11.01.2019"
+  },
+  {
+    "id": 455,
+    "combination": [
+      "ibuprofen",
+      "paracetamol",
+      "magnesium trisilicate"
+    ],
+    "gazette_ref": "S.O.197 (E) 11.01.2019"
+  },
+  {
+    "id": 456,
+    "combination": [
+      "mebeverine",
+      "alprazolam"
+    ],
+    "gazette_ref": "S.O.198 (E) 11.01.2019"
+  },
+  {
+    "id": 457,
+    "combination": [
+      "mecobalamin",
+      "methenamine mandelate"
+    ],
+    "gazette_ref": "S.O.199 (E) 11.01.2019"
+  },
+  {
+    "id": 458,
+    "combination": [
+      "norfloxacin",
+      "tinidazole",
+      "dicyclomine"
+    ],
+    "gazette_ref": "S.O.200 (E) 11.01.2019"
+  },
+  {
+    "id": 459,
+    "combination": [
+      "norfloxacin",
+      "tinidazole",
+      "loperamide"
+    ],
+    "gazette_ref": "S.O.201 (E) 11.01.2019"
+  },
+  {
+    "id": 460,
+    "combination": [
+      "ondansetron",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.202 (E) 11.01.2019"
+  },
+  {
+    "id": 461,
+    "combination": [
+      "paracetamol",
+      "alprazolam"
+    ],
+    "gazette_ref": "S.O.203 (E) 11.01.2019"
+  },
+  {
+    "id": 462,
+    "combination": [
+      "paracetamol",
+      "diclofenac sodium",
+      "amoxicillin",
+      "cloxacillin",
+      "pantoprazole",
+      "lactic acid bacillus",
+      "serratiopeptidase"
+    ],
+    "gazette_ref": "S.O.204 (E) 11.01.2019"
+  },
+  {
+    "id": 463,
+    "combination": [
+      "paracetamol",
+      "diclofenac sodium",
+      "magnesium trisilicate",
+      "chlorpheniramine maleate"
+    ],
+    "gazette_ref": "S.O.205 (E) 11.01.2019"
+  },
+  {
+    "id": 464,
+    "combination": [
+      "paracetamol",
+      "ketoprofen",
+      "dextropropoxyphene"
+    ],
+    "gazette_ref": "S.O.206 (E) 11.01.2019"
+  },
+  {
+    "id": 465,
+    "combination": [
+      "ranitidine",
+      "dicyclomine",
+      "clidinium bromide"
+    ],
+    "gazette_ref": "S.O.207 (E) 11.01.2019"
+  },
+  {
+    "id": 466,
+    "combination": [
+      "ranitidine",
+      "omeprazole"
+    ],
+    "gazette_ref": "S.O.208 (E) 11.01.2019"
+  },
+  {
+    "id": 467,
+    "combination": [
+      "acriflavine",
+      "gentian violet",
+      "brilliant green"
+    ],
+    "gazette_ref": "S.O.209 (E) 11.01.2019"
+  },
+  {
+    "id": 468,
+    "combination": [
+      "allantoin",
+      "triclosan",
+      "vitamin e",
+      "zinc oxide"
+    ],
+    "gazette_ref": "S.O.210 (E) 11.01.2019"
+  },
+  {
+    "id": 469,
+    "combination": [
+      "allantoin",
+      "vitamin e",
+      "camellia sinensis"
+    ],
+    "gazette_ref": "S.O.211 (E) 11.01.2019"
+  },
+  {
+    "id": 470,
+    "combination": [
+      "atorvastatin",
+      "omega 3 fatty acid"
+    ],
+    "gazette_ref": "S.O.212 (E) 11.01.2019"
+  },
+  {
+    "id": 471,
+    "combination": [
+      "atorvastatin",
+      "ubidecarenone"
+    ],
+    "gazette_ref": "S.O.213 (E) 11.01.2019"
+  },
+  {
+    "id": 472,
+    "combination": [
+      "cefixime",
+      "lactobacillus",
+      "clavulanic acid"
+    ],
+    "gazette_ref": "S.O.214 (E) 11.01.2019"
+  },
+  {
+    "id": 473,
+    "combination": [
+      "cefixime",
+      "ornidazole"
+    ],
+    "gazette_ref": "S.O.215 (E) 11.01.2019"
+  },
+  {
+    "id": 474,
+    "combination": [
+      "ceftriaxone",
+      "vancomycin"
+    ],
+    "gazette_ref": "S.O.216 (E) 11.01.2019"
+  },
+  {
+    "id": 475,
+    "combination": [
+      "cefuroxime",
+      "ornidazole"
+    ],
+    "gazette_ref": "S.O.217 (E) 11.01.2019"
+  },
+  {
+    "id": 476,
+    "combination": [
+      "diclofenac",
+      "pitofenone hydrochloride",
+      "fenpiverinium bromide",
+      "paracetamol"
+    ],
+    "gazette_ref": "S.O.218 (E) 11.01.2019"
+  },
+  {
+    "id": 477,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "dextropropoxyphene",
+      "chlordiazepoxide"
+    ],
+    "gazette_ref": "S.O.219 (E) 11.01.2019"
+  },
+  {
+    "id": 478,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "dimethylpolysiloxane"
+    ],
+    "gazette_ref": "S.O.220 (E) 11.01.2019"
+  },
+  {
+    "id": 479,
+    "combination": [
+      "dicyclomine",
+      "paracetamol",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.221 (E) 11.01.2019"
+  },
+  {
+    "id": 480,
+    "combination": [
+      "doxycycline",
+      "tinidazole"
+    ],
+    "gazette_ref": "S.O.222 (E) 11.01.2019"
+  },
+  {
+    "id": 481,
+    "combination": [
+      "drotaverine",
+      "omeprazole"
+    ],
+    "gazette_ref": "S.O.223 (E) 11.01.2019"
+  },
+  {
+    "id": 482,
+    "combination": [
+      "fenpiverinium bromide",
+      "diclofenac sodium",
+      "pitofenone hydrochloride"
+    ],
+    "gazette_ref": "S.O.224 (E) 11.01.2019"
+  },
+  {
+    "id": 483,
+    "combination": [
+      "glucosamine",
+      "ascorbic acid"
+    ],
+    "gazette_ref": "S.O.225 (E) 11.01.2019"
+  },
+  {
+    "id": 484,
+    "combination": [
+      "glucosamine",
+      "boswellia serrata"
+    ],
+    "gazette_ref": "S.O.226 (E) 11.01.2019"
+  },
+  {
+    "id": 485,
+    "combination": [
+      "glucosamine",
+      "calcium carbonate"
+    ],
+    "gazette_ref": "S.O.227 (E) 11.01.2019"
+  },
+  {
+    "id": 486,
+    "combination": [
+      "glucosamine",
+      "cetyl myristate oleate"
+    ],
+    "gazette_ref": "S.O.228 (E) 11.01.2019"
+  },
+  {
+    "id": 487,
+    "combination": [
+      "glucosamine",
+      "chondroitin sulphate",
+      "methyl sulfonyl methane"
+    ],
+    "gazette_ref": "S.O.229 (E) 11.01.2019"
+  },
+  {
+    "id": 488,
+    "combination": [
+      "chondroitin sulphate",
+      "vitamin c",
+      "manganese sulphate"
+    ],
+    "gazette_ref": "S.O.230 (E) 11.01.2019"
+  },
+  {
+    "id": 489,
+    "combination": [
+      "glucosamine",
+      "chondroitin",
+      "vitamin c",
+      "vitamin e",
+      "manganese"
+    ],
+    "gazette_ref": "S.O.231 (E) 11.01.2019"
+  },
+  {
+    "id": 490,
+    "combination": [
+      "glucosamine",
+      "chondroitin",
+      "vitamin c"
+    ],
+    "gazette_ref": "S.O.232 (E) 11.01.2019"
+  },
+  {
+    "id": 491,
+    "combination": [
+      "glucosamine",
+      "chondroitin",
+      "vitamin c",
+      "vitamin e",
+      "manganese sulphate",
+      "sodium borate",
+      "selenium dioxide"
+    ],
+    "gazette_ref": "S.O.233 (E) 11.01.2019"
+  },
+  {
+    "id": 492,
+    "combination": [
+      "glucosamine",
+      "cholecalciferol",
+      "manganese",
+      "ascorbic acid"
+    ],
+    "gazette_ref": "S.O.234 (E) 11.01.2019"
+  },
+  {
+    "id": 493,
+    "combination": [
+      "glucosamine",
+      "manganese"
+    ],
+    "gazette_ref": "S.O.235 (E) 11.01.2019"
+  },
+  {
+    "id": 494,
+    "combination": [
+      "glucosamine",
+      "mecobalamin",
+      "dimethyl sulfone"
+    ],
+    "gazette_ref": "S.O.236 (E) 11.01.2019"
+  },
+  {
+    "id": 495,
+    "combination": [
+      "glucosamine",
+      "mecobalamin"
+    ],
+    "gazette_ref": "S.O.237 (E) 11.01.2019"
+  },
+  {
+    "id": 496,
+    "combination": [
+      "glucosamine",
+      "mecobalamin",
+      "milk calcium"
+    ],
+    "gazette_ref": "S.O.238 (E) 11.01.2019"
+  },
+  {
+    "id": 497,
+    "combination": [
+      "glucosamine",
+      "methyl sulfonyl methane"
+    ],
+    "gazette_ref": "S.O.239 (E) 11.01.2019"
+  },
+  {
+    "id": 498,
+    "combination": [
+      "glucosamine",
+      "methyl sulfonyl methane",
+      "cetyl myristate"
+    ],
+    "gazette_ref": "S.O.240 (E) 11.01.2019"
+  },
+  {
+    "id": 499,
+    "combination": [
+      "glucosamine",
+      "vitamin c",
+      "calcium",
+      "methyl sulfonyl methane",
+      "chondroitin",
+      "manganese"
+    ],
+    "gazette_ref": "S.O.241 (E) 11.01.2019"
+  },
+  {
+    "id": 500,
+    "combination": [
+      "glucosamine",
+      "vitamin c",
+      "vitamin e",
+      "chondroitin sulphate",
+      "methyl sulfonyl methane",
+      "manganese sulphate"
+    ],
+    "gazette_ref": "S.O.242 (E) 11.01.2019"
+  },
+  {
+    "id": 501,
+    "combination": [
+      "glucosamine sulphate",
+      "chondroitin sulphate",
+      "vitamin e",
+      "manganese"
+    ],
+    "gazette_ref": "S.O.243 (E) 11.01.2019"
+  },
+  {
+    "id": 502,
+    "combination": [
+      "glucosamine",
+      "calcium",
+      "vitamin d3"
+    ],
+    "gazette_ref": "S.O.244 (E) 11.01.2019"
+  },
+  {
+    "id": 503,
+    "combination": [
+      "ornidazole",
+      "doxycycline"
+    ],
+    "gazette_ref": "S.O.245 (E) 11.01.2019"
+  },
+  {
+    "id": 504,
+    "combination": [
+      "ornidazole",
+      "fluconazole",
+      "azithromycin"
+    ],
+    "gazette_ref": "S.O.246 (E) 11.01.2019"
+  },
+  {
+    "id": 505,
+    "combination": [
+      "propranolol",
+      "hydralazine"
+    ],
+    "gazette_ref": "S.O.247 (E) 11.01.2019"
+  },
+  {
+    "id": 506,
+    "combination": [
+      "propranolol",
+      "hydrochlorothiazide",
+      "dihydralazine"
+    ],
+    "gazette_ref": "S.O.248 (E) 11.01.2019"
+  },
+  {
+    "id": 507,
+    "combination": [
+      "ranitidine",
+      "dicyclomine",
+      "nimesulide"
+    ],
+    "gazette_ref": "S.O.249 (E) 11.01.2019"
+  },
+  {
+    "id": 508,
+    "combination": [
+      "ranitidine",
+      "dicycloverine",
+      "simethicone"
+    ],
+    "gazette_ref": "S.O.250 (E) 11.01.2019"
+  },
+  {
+    "id": 509,
+    "combination": [
+      "ranitidine",
+      "drotaverine"
+    ],
+    "gazette_ref": "S.O.251 (E) 11.01.2019"
+  },
+  {
+    "id": 510,
+    "combination": [
+      "telmisartan",
+      "ramipril",
+      "hydrochlorothiazide"
+    ],
+    "gazette_ref": "S.O.252 (E) 11.01.2019"
+  },
+  {
+    "id": 511,
+    "combination": [
+      "ibuprofen",
+      "paracetamol",
+      "phenylephrine",
+      "chlorpheniramine maleate"
+    ],
+    "gazette_ref": "S.O.253 (E) 11.01.2019"
+  },
+  {
+    "id": 512,
+    "combination": [
+      "nimesulide",
+      "phenylephrine",
+      "chlorpheniramine maleate",
+      "caffeine"
+    ],
+    "gazette_ref": "S.O.254 (E) 11.01.2019"
+  },
+  {
+    "id": 513,
+    "combination": [
+      "nimesulide",
+      "pitofenone",
+      "fenpiverinium bromide"
+    ],
+    "gazette_ref": "S.O.255 (E) 11.01.2019"
+  },
+  {
+    "id": 514,
+    "combination": [
+      "nimesulide",
+      "pseudoephedrine",
+      "cetirizine"
+    ],
+    "gazette_ref": "S.O.256 (E) 11.01.2019"
+  },
+  {
+    "id": 515,
+    "combination": [
+      "ofloxacin",
+      "diclofenac",
+      "lignocaine"
+    ],
+    "gazette_ref": "S.O.257 (E) 11.01.2019"
+  },
+  {
+    "id": 516,
+    "combination": [
+      "ondansetron",
+      "omeprazole"
+    ],
+    "gazette_ref": "S.O.258 (E) 11.01.2019"
+  },
+  {
+    "id": 517,
+    "combination": [
+      "hydrochlorothiazide",
+      "ramipril",
+      "losartan potassium"
+    ],
+    "gazette_ref": "S.O.259 (E) 11.01.2019"
+  },
+  {
+    "id": 518,
+    "combination": [
+      "corticosteroids"
+    ],
+    "gazette_ref": "GSR NO. 255(E) 07.04.2021"
+  }
+]
