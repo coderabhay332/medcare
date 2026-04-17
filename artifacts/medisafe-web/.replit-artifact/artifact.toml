@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "MediSafe"
+version = "1.0.0"
+id = "artifacts/medisafe-web"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25649
+
+[services.development]
+run = "pnpm --filter @workspace/medisafe-web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/medisafe-web", "run", "build" ]
+publicDir = "artifacts/medisafe-web/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25649"
+BASE_PATH = "/"
