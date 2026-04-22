@@ -1,58 +1,94 @@
-import Fuse from 'fuse.js';
-import { parse } from 'csv-parse/sync';
-import fs from 'fs';
+/**
+ * medicineSearch.ts
+ * -----------------
+ * Replaces the old Fuse.js / CSV approach with MongoDB queries.
+ *
+ * Strategy (in order of priority):
+ *  1. MongoDB $text search  — uses the text index on brand_name + composition
+ *  2. Regex fallback         — case-insensitive partial match on brand_name
+ *
+ * parseSalts() is kept for callers that still need it.
+ */
+
+import mongoose from 'mongoose';
+import { Medicine } from '../models/Medicine.model.js';
 import { parseSalts } from '../helper/saltParser.js';
 import type { MedicineRecord, MedicineSearchResult } from '../../medicines/medicines.dto.js';
 
-let fuseIndex: Fuse<MedicineSearchResult> | null = null;
-let allRecords: MedicineSearchResult[] = [];
+export { parseSalts };
 
-export function initMedicineIndex(csvPath: string): void {
-  const raw = fs.readFileSync(csvPath, 'utf8');
-  const records = parse(raw, {
-    columns: true,
-    skip_empty_lines: true,
-    relax_quotes: true,
-    relax_column_count: true,
-  }) as MedicineRecord[];
+/**
+ * Convert a raw DB document to the MedicineSearchResult shape.
+ */
+function toSearchResult(doc: MedicineRecord & { _id?: unknown }): MedicineSearchResult {
+  const plain = { ...doc } as MedicineRecord & { salts?: string[] };
+  const salts = parseSalts(doc.composition ?? '');
+  return { ...plain, salts };
+}
 
-  allRecords = records.map(r => {
-    let safetyAdvice: MedicineRecord['safety_advice'] = {};
-    if (typeof r.safety_advice === 'string') {
-      try {
-        safetyAdvice = JSON.parse(r.safety_advice) as MedicineRecord['safety_advice'];
-      } catch {
-        safetyAdvice = {};
-      }
-    } else {
-      safetyAdvice = r.safety_advice ?? {};
+/**
+ * Search medicines using MongoDB text index first, regex fallback second.
+ * @param query  Search term (brand name, salt, composition, etc.)
+ * @param limit  Max results to return (default 10)
+ */
+export async function searchMedicines(
+  query: string,
+  limit = 10,
+): Promise<MedicineSearchResult[]> {
+  if (!query?.trim()) return [];
+
+  // ── 1. Text index search (fast, uses index) ─────────────────────────────
+  try {
+    const textResults = await Medicine.find(
+      { $text: { $search: query } },
+      { score: { $meta: 'textScore' }, __v: 0 }
+    )
+      .sort({ score: { $meta: 'textScore' } })
+      .limit(limit)
+      .lean()
+      .exec();
+
+    if (textResults.length > 0) {
+      return textResults.map(doc => toSearchResult(doc as unknown as MedicineRecord));
     }
+  } catch (_) {
+    // text index may not exist yet — fall through to regex
+  }
 
-    return {
-      ...r,
-      safety_advice: safetyAdvice,
-      salts: parseSalts(r.composition ?? ''),
-    };
-  });
+  // ── 2. Regex fallback (brand_name partial match) ─────────────────────────
+  const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  const regexResults = await Medicine.find(
+    { brand_name: regex },
+    { __v: 0 }
+  )
+    .limit(limit)
+    .lean()
+    .exec();
 
-  fuseIndex = new Fuse(allRecords, {
-    keys: ['brand_name', 'composition'],
-    threshold: 0.3,
-    minMatchCharLength: 3,
-  });
+  return regexResults.map(doc => toSearchResult(doc as unknown as MedicineRecord));
 }
 
-export function searchMedicines(query: string, limit = 10): MedicineSearchResult[] {
-  if (!fuseIndex) return [];
-  return fuseIndex.search(query, { limit }).map(r => r.item);
+/**
+ * Exact brand-name lookup (case-insensitive).
+ */
+export async function getMedicineByBrand(brand: string): Promise<MedicineSearchResult | null> {
+  const doc = await Medicine.findOne(
+    { brand_name: new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') },
+    { __v: 0 }
+  ).lean().exec();
+
+  return doc ? toSearchResult(doc as unknown as MedicineRecord) : null;
 }
 
-export function getMedicineByBrand(brand: string): MedicineSearchResult | undefined {
-  return allRecords.find(r =>
-    r.brand_name.toLowerCase() === brand.toLowerCase()
-  );
+// ---------------------------------------------------------------------------
+// Legacy compat shims — kept so medicineIndex.ts callers don't break
+// These are no-ops now that search is driven by MongoDB.
+// ---------------------------------------------------------------------------
+export function initMedicineIndex(_csvPath: string): void {
+  // No-op: index is now in MongoDB. Called from index.ts — safe to call.
 }
 
 export function getAllRecords(): MedicineSearchResult[] {
-  return allRecords;
+  // Sync API not viable with MongoDB; return empty. Use searchMedicines instead.
+  return [];
 }

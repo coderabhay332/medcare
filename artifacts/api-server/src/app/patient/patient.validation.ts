@@ -10,13 +10,13 @@ export const updateProfileValidation = [
 ];
 
 export const addMedicationValidation = [
-  body('brand').trim().notEmpty().withMessage('Brand is required'),
-  body('composition').trim().notEmpty().withMessage('Composition is required'),
-  body('type')
-    .isIn(['chronic', 'vitamin', 'as-needed'])
-    .withMessage('Type must be chronic, vitamin, or as-needed'),
+  body('name').trim().notEmpty().withMessage('Medicine name is required'),
+  body('salt').optional().trim().isString(),
+  body('dosage').optional().trim().isString(),
+  body('frequency').optional().trim().isString(),
 ];
 
 export const medicationIdValidation = [
   param('medId').isMongoId().withMessage('Invalid medication ID'),
 ];
+

@@ -1,10 +1,9 @@
 export interface MedicationEntry {
-  brand: string;
-  composition: string;
-  salts: string[];
-  type: 'chronic' | 'vitamin' | 'as-needed';
-  addedOn?: Date;
-  active?: boolean;
+  name: string;
+  salt?: string;
+  dosage?: string;
+  frequency?: string;
+  addedAt?: Date;
 }
 
 export interface CreatePatientDTO {
@@ -21,7 +20,8 @@ export interface CreatePatientDTO {
 export type UpdatePatientDTO = Partial<Omit<CreatePatientDTO, 'email' | 'password'>>;
 
 export interface AddMedicationDTO {
-  brand: string;
-  composition: string;
-  type: 'chronic' | 'vitamin' | 'as-needed';
+  name: string;
+  salt?: string;
+  dosage?: string;
+  frequency?: string;
 }

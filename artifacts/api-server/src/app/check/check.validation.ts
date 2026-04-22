@@ -1,15 +1,12 @@
 import { body } from 'express-validator';
 
 export const checkValidation = [
-  body('newMedicines')
-    .isArray({ min: 1 })
-    .withMessage('newMedicines must be a non-empty array'),
-  body('newMedicines.*.brand')
+  body('medicines')
+    .isArray({ min: 2 })
+    .withMessage('Provide at least 2 medicines to check interactions.'),
+  body('medicines.*')
+    .isString()
     .trim()
     .notEmpty()
-    .withMessage('Each medicine must have a brand name'),
-  body('newMedicines.*.composition')
-    .trim()
-    .notEmpty()
-    .withMessage('Each medicine must have a composition'),
+    .withMessage('Each medicine must be a valid string name'),
 ];

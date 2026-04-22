@@ -39,10 +39,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const persist = useCallback((data: AuthTokens) => {
+    // API returns { token, patient } — map to local { token, user }
+    const userObj = data.patient;
     localStorage.setItem("medisafe_token", data.token);
-    localStorage.setItem("medisafe_user", JSON.stringify(data.user));
+    localStorage.setItem("medisafe_user", JSON.stringify(userObj));
     setToken(data.token);
-    setUser(data.user);
+    setUser(userObj);
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {

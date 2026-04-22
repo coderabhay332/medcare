@@ -205,17 +205,19 @@ function CheckResults({ result }: { result: CheckResponse }) {
             <X className="w-4.5 h-4.5 text-destructive" />
             <p className="font-semibold text-destructive text-sm">Banned FDC Formulations Detected</p>
           </div>
-          <div className="space-y-1.5">
-            {result.bannedFound.map((b) => (
-              <div key={b} className="flex items-center gap-2 px-3 py-2 bg-white/50 rounded-lg text-sm text-destructive">
-                <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                {b}
+          <div className="space-y-2">
+            {result.bannedFound.map((b, i) => (
+              <div key={i} className="flex flex-col gap-1.5 px-3 py-2.5 bg-white/50 rounded-lg border border-destructive/10">
+                <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  {b.medicines.join(" + ")}
+                </div>
+                <p className="text-xs text-destructive/80 leading-relaxed ml-5">
+                  {b.reason}
+                </p>
               </div>
             ))}
           </div>
-          <p className="text-xs text-destructive/70 mt-2">
-            These are banned by the Ministry of Health & Family Welfare. Do not use.
-          </p>
         </div>
       )}
 
@@ -256,7 +258,8 @@ function InteractionCard({ item }: { item: CheckResultItem }) {
   const Icon = cfg.icon;
 
   return (
-    <div className={cn("p-4 rounded-xl border", cfg.bg, cfg.border)}>
+    <div className={cn("p-4 rounded-xl border space-y-2.5", cfg.bg, cfg.border)}>
+      {/* Header */}
       <div className="flex items-start gap-3">
         <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", cfg.color)} />
         <div className="flex-1">
@@ -266,13 +269,52 @@ function InteractionCard({ item }: { item: CheckResultItem }) {
             <span className="text-xs text-muted-foreground font-medium">{item.pair.join(" + ")}</span>
           </div>
           {item.reason && (
-            <p className="text-xs text-foreground/70 mt-1.5 leading-relaxed">{item.reason}</p>
+            <p className="text-xs text-foreground/70 mt-1 leading-relaxed">{item.reason}</p>
           )}
-          <p className="text-[10px] text-muted-foreground mt-1.5 uppercase tracking-wide">
-            Source: {item.source}
-          </p>
         </div>
       </div>
+
+      {/* Clinical problem */}
+      {item.problem && (
+        <div className="flex gap-2 p-2.5 rounded-lg bg-orange-50 border border-orange-100 ml-7">
+          <AlertTriangle className="w-3.5 h-3.5 text-orange-600 mt-0.5 shrink-0" />
+          <p className="text-xs text-orange-800 leading-relaxed">{item.problem}</p>
+        </div>
+      )}
+
+      {/* Alternatives / management tips */}
+      {item.alternatives && item.alternatives.length > 0 && (
+        <div className="ml-7">
+          <p className="text-[10px] font-semibold text-green-700 uppercase tracking-wide mb-1.5">What you can do</p>
+          <ul className="space-y-1">
+            {item.alternatives.map((alt, i) => (
+              <li key={i} className="flex items-start gap-1.5 text-xs text-foreground/80 leading-relaxed">
+                <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                {alt}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <SourceBadge source={item.source} />
     </div>
+  );
+}
+
+const SOURCE_BADGE: Record<string, { label: string; cls: string }> = {
+  india_gazette: { label: "🔴 Government Gazette", cls: "bg-red-50 text-red-700 border-red-200" },
+  openFDA:       { label: "🟡 FDA Database",        cls: "bg-yellow-50 text-yellow-700 border-yellow-200" },
+  rxnav:         { label: "🟡 NLM RxNav",           cls: "bg-yellow-50 text-yellow-700 border-yellow-200" },
+  organ_burden:  { label: "🟠 Organ Burden",        cls: "bg-orange-50 text-orange-700 border-orange-200" },
+  claude:        { label: "🔵 AI Estimate",          cls: "bg-blue-50 text-blue-700 border-blue-200" },
+};
+
+function SourceBadge({ source }: { source: string }) {
+  const badge = SOURCE_BADGE[source] ?? { label: source, cls: "bg-muted text-muted-foreground border-border" };
+  return (
+    <span className={cn("inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded-full border ml-7", badge.cls)}>
+      {badge.label}
+    </span>
   );
 }

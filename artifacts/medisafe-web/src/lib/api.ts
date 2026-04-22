@@ -2,7 +2,7 @@ const BASE = "/api";
 
 export interface AuthTokens {
   token: string;
-  user: {
+  patient: {
     id: string;
     name: string;
     email: string;
@@ -28,6 +28,7 @@ export interface Medication {
   addedAt: string;
 }
 
+
 export interface PatientProfile {
   _id: string;
   name: string;
@@ -36,28 +37,72 @@ export interface PatientProfile {
   weight?: number;
   conditions: string[];
   allergies: string[];
-  medications: Medication[];
+  medications: Medication[];       // mapped from currentMedications
+  currentMedications?: Medication[]; // raw field from backend
   createdAt: string;
 }
+
 
 export interface CheckResultItem {
   pair: [string, string];
   severity: "none" | "mild" | "moderate" | "severe";
   reason: string;
+  problem: string;
+  alternatives: string[];
   source: string;
 }
 
 export interface CheckResponse {
   overallSafe: boolean;
-  bannedFound: string[];
+  bannedFound: { medicines: string[]; reason: string }[];
   results: CheckResultItem[];
   organWarnings: string[];
   summary: string;
 }
 
 export interface ScanResult {
+  medicines: string[];      // extracted medicine names shown to the user
+  matched: { name: string; [k: string]: unknown }[];
+  unmatched: string[];
+}
+
+export interface DietaryAdviceItem {
+  category: string;
+  avoid: string[];
+  reason: string;
+}
+
+export interface DietaryAdviceResult {
+  medicine: string;
+  items: DietaryAdviceItem[];
+  cached: boolean;
+}
+
+export interface CombinedAvoidItem {
+  category: string;
+  items: { name: string; severity: 'high' | 'moderate' | 'low'; timingContext: string }[];
+  reason: string;
+}
+
+export interface MealScheduleItem {
+  medicine: string;
+  timing: 'before' | 'after' | 'empty_stomach' | 'any';
+  note: string;
+}
+
+export interface MedicineTip {
+  medicine: string;
+  tip: string;
+}
+
+export interface CombinedDietaryResult {
   medicines: string[];
-  rawText: string;
+  avoid: CombinedAvoidItem[];
+  safeToEat: string[];
+  mealSchedule: MealScheduleItem[];
+  medicineTips: MedicineTip[];
+  generalTips: string[];
+  cached: boolean;
 }
 
 function getToken(): string | null {
@@ -67,6 +112,13 @@ function getToken(): string | null {
 function authHeaders(): HeadersInit {
   const t = getToken();
   return t ? { Authorization: `Bearer ${t}` } : {};
+}
+
+interface ApiEnvelope<T> {
+  success: boolean;
+  data?: T;
+  message?: string;
+  error?: string;
 }
 
 async function request<T>(
@@ -82,11 +134,12 @@ async function request<T>(
     ...options,
   });
 
-  const data = await res.json().catch(() => ({}));
+  const envelope = await res.json().catch(() => ({})) as ApiEnvelope<T>;
   if (!res.ok) {
-    throw new Error((data as { message?: string }).message ?? `HTTP ${res.status}`);
+    throw new Error(envelope.message ?? envelope.error ?? `HTTP ${res.status}`);
   }
-  return data as T;
+  // Unwrap the { success, data } envelope the API uses
+  return (envelope.data !== undefined ? envelope.data : envelope) as T;
 }
 
 export const api = {
@@ -98,18 +151,40 @@ export const api = {
   },
 
   patient: {
-    getProfile: () => request<PatientProfile>("/patient/profile"),
+    getProfile: () =>
+      request<PatientProfile>("/patient/profile").then((p) => ({
+        ...p,
+        // Backend stores as currentMedications; normalise to medications
+        medications: p.currentMedications ?? p.medications ?? [],
+      })),
     updateProfile: (body: Partial<PatientProfile>) =>
-      request<PatientProfile>("/patient/profile", { method: "PUT", body: JSON.stringify(body) }),
+      request<PatientProfile>("/patient/profile", { method: "PUT", body: JSON.stringify(body) }).then((p) => ({
+        ...p,
+        medications: p.currentMedications ?? p.medications ?? [],
+      })),
     addMedication: (body: { name: string; salt?: string; dosage?: string; frequency?: string }) =>
-      request<PatientProfile>("/patient/medications", { method: "POST", body: JSON.stringify(body) }),
+      request<PatientProfile>("/patient/medications", { method: "POST", body: JSON.stringify(body) }).then((p) => ({
+        ...p,
+        medications: p.currentMedications ?? p.medications ?? [],
+      })),
     removeMedication: (medId: string) =>
-      request<PatientProfile>(`/patient/medications/${medId}`, { method: "DELETE" }),
+      request<PatientProfile>(`/patient/medications/${medId}`, { method: "DELETE" }).then((p) => ({
+        ...p,
+        medications: p.currentMedications ?? p.medications ?? [],
+      })),
   },
 
   medicines: {
     search: (q: string) =>
-      request<{ results: MedicineSearchResult[] }>(`/medicines/search?q=${encodeURIComponent(q)}`),
+      request<any[]>(`/medicines/search?q=${encodeURIComponent(q)}`).then(res => 
+        res.map(r => ({
+          id: r._id || r.id,
+          name: r.brand_name || r.name || "Unknown Medicine",
+          salt: r.composition || r.salt || "",
+          manufacturer: r.manufacturer,
+          price: r.price ? parseFloat(String(r.price).replace(/[^0-9.]/g, '')) || undefined : undefined
+        }))
+      ),
     scan: (file: File) => {
       const fd = new FormData();
       fd.append("image", file);
@@ -118,15 +193,57 @@ export const api = {
         headers: { ...authHeaders() } as Record<string, string>,
         body: fd,
       }).then(async (r) => {
-        const d = await r.json().catch(() => ({}));
-        if (!r.ok) throw new Error((d as { message?: string }).message ?? `HTTP ${r.status}`);
-        return d as ScanResult;
+        const envelope = await r.json().catch(() => ({})) as ApiEnvelope<{ extracted: string[]; matched: unknown[]; unmatched: string[] }>;
+        if (!r.ok) throw new Error(envelope.message ?? envelope.error ?? `HTTP ${r.status}`);
+        const inner = envelope.data ?? (envelope as unknown as { extracted: string[]; matched: unknown[]; unmatched: string[] });
+        // Map API shape { extracted, matched, unmatched } → { medicines, matched, unmatched }
+        return {
+          medicines: inner.extracted ?? [],
+          matched: inner.matched ?? [],
+          unmatched: inner.unmatched ?? [],
+        } as ScanResult;
       });
     },
+    getDietaryAdvice: (name: string) =>
+      request<DietaryAdviceResult>(`/medicines/dietary-advice/${encodeURIComponent(name)}`),
+    getCombinedDietaryAdvice: (medicines: string[]) =>
+      request<CombinedDietaryResult>('/medicines/combined-dietary-advice', {
+        method: 'POST',
+        body: JSON.stringify({ medicines }),
+      }),
   },
 
   check: {
     run: (body: { medicines: string[] }) =>
-      request<CheckResponse>("/check", { method: "POST", body: JSON.stringify(body) }),
+      request<any>("/check", { method: "POST", body: JSON.stringify(body) }).then((res) => {
+        const results = res.results || [];
+        const mappedResults = results.map((r: any) => ({
+          pair: [r.medicine, r.conflictsWith].filter(Boolean),
+          severity: r.severity || "none",
+          reason: r.reason || "",
+          problem: r.problem || "",
+          alternatives: r.alternatives || [],
+          source: r.source || "",
+          status: r.status,
+        }));
+        
+        return {
+          overallSafe: res.safe ?? true,
+          summary: res.summary || "",
+          results: mappedResults.filter((r: any) => r.severity !== "none" && r.status !== "banned"),
+          bannedFound: Object.values(
+            results.filter((r: any) => r.status === "banned").reduce((acc: any, r: any) => {
+              if (!acc[r.reason]) acc[r.reason] = { medicines: [], reason: r.reason };
+              if (!acc[r.reason].medicines.includes(r.medicine)) {
+                acc[r.reason].medicines.push(r.medicine);
+              }
+              return acc;
+            }, {})
+          ),
+          organWarnings: results
+            .filter((r: any) => (r.reason?.toLowerCase().includes("liver") || r.reason?.toLowerCase().includes("kidney")) && r.status !== "banned")
+            .map((r: any) => `${r.medicine}: ${r.reason}`),
+        } as CheckResponse;
+      }),
   },
 };

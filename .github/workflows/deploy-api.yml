@@ -1,0 +1,100 @@
+name: Deploy API to AWS EC2
+
+on:
+  push:
+    branches:
+      - main          # Deploy on every push to main
+    paths:
+      - 'artifacts/api-server/**'
+      - 'lib/**'
+      - 'pnpm-workspace.yaml'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/deploy-api.yml'
+
+  workflow_dispatch:   # Also allow manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ── 2. Setup pnpm ──────────────────────────────────────────────────────
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # ── 3. Setup Node ──────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      # ── 4. Install dependencies ────────────────────────────────────────────
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ── 5. Build api-server ────────────────────────────────────────────────
+      - name: Build api-server
+        run: pnpm --filter @workspace/api-server build
+
+      # ── 6. Package the build artifact ──────────────────────────────────────
+      # We only ship: dist/, package.json, ecosystem.config.cjs
+      # node_modules are installed fresh on the server
+      - name: Package dist
+        run: |
+          tar -czf api-server-dist.tar.gz \
+            -C artifacts/api-server \
+            dist/ \
+            package.json \
+            ecosystem.config.cjs
+
+      # ── 7. Copy artifact to EC2 via SCP ────────────────────────────────────
+      - name: Copy dist to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host:     ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key:      ${{ secrets.EC2_SSH_KEY }}
+          port:     22
+          source:   api-server-dist.tar.gz
+          target:   ${{ secrets.EC2_DEPLOY_PATH }}
+
+      # ── 8. SSH: extract, install, reload pm2 ──────────────────────────────
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host:     ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key:      ${{ secrets.EC2_SSH_KEY }}
+          port:     22
+          script: |
+            set -e
+            DEPLOY_DIR="${{ secrets.EC2_DEPLOY_PATH }}"
+
+            echo "── Extracting build ──────────────────"
+            cd "$DEPLOY_DIR"
+            tar -xzf api-server-dist.tar.gz
+            rm  api-server-dist.tar.gz
+
+            echo "── Installing prod dependencies ──────"
+            # Only install production deps (no devDependencies)
+            npm install --omit=dev --ignore-scripts
+
+            echo "── Reloading PM2 ─────────────────────"
+            # 'reload' does a graceful zero-downtime restart
+            pm2 reload ecosystem.config.cjs --update-env \
+              || pm2 start ecosystem.config.cjs
+
+            echo "── Saving PM2 state ──────────────────"
+            pm2 save
+
+            echo "── Done ✓ ────────────────────────────"
+            pm2 list

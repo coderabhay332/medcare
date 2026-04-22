@@ -13,7 +13,7 @@ export interface BannedEntry {
 let bannedList: BannedEntry[] = [];
 
 function loadBannedList(): void {
-  const bannedPath = path.join(__dirname, '../../../../data/banned_fdcs.json');
+  const bannedPath = path.join(process.cwd(), 'data/banned_fdcs.json');
   if (fs.existsSync(bannedPath)) {
     const raw = fs.readFileSync(bannedPath, 'utf8');
     bannedList = JSON.parse(raw) as BannedEntry[];

@@ -4,9 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "cross-env PORT=5174 BASE_PATH=/ vite dev",
+    "build": "cross-env PORT=5174 BASE_PATH=/ vite build",
+    "preview": "cross-env PORT=5174 BASE_PATH=/ vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {

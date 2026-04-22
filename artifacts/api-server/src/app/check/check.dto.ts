@@ -1,5 +1,5 @@
 export interface CheckRequestDTO {
-  newMedicines: Array<{ brand: string; composition: string }>;
+  medicines: string[];
 }
 
 export interface CheckResultItem {
@@ -7,10 +7,12 @@ export interface CheckResultItem {
   status: 'safe' | 'warning' | 'banned' | 'interaction';
   severity: 'none' | 'mild' | 'moderate' | 'severe';
   reason: string;
+  problem: string;
+  alternatives: string[];
   conflictsWith: string | null;
   gazette_ref: string | null;
   dosageGuidance: string;
-  source: 'india_gazette' | 'openFDA' | 'claude' | 'unavailable';
+  source: 'india_gazette' | 'openFDA' | 'rxnav' | 'claude' | 'organ_burden' | 'unavailable';
 }
 
 export interface CheckResponseDTO {

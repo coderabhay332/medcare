@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import { validationResult } from 'express-validator';
 import type { Request, Response } from 'express';
-import { searchMedicinesByQuery, extractMedicinesFromImage } from './medicines.service.js';
+import { searchMedicinesByQuery, extractMedicinesFromImage, getDietaryAdvice, getCombinedDietaryAdvice } from './medicines.service.js';
 
 export const search = asyncHandler(async (req: Request, res: Response) => {
   const errors = validationResult(req);
@@ -29,5 +29,25 @@ export const scan = asyncHandler(async (req: Request, res: Response) => {
   }
 
   const result = await extractMedicinesFromImage(file.buffer, mimeType);
+  res.json({ success: true, data: result });
+});
+
+export const dietaryAdvice = asyncHandler(async (req: Request, res: Response) => {
+  const name = req.params['name'];
+  if (!name || name.trim().length < 2) {
+    res.status(400).json({ success: false, error: 'Medicine name is required' });
+    return;
+  }
+  const result = await getDietaryAdvice(decodeURIComponent(name));
+  res.json({ success: true, data: result });
+});
+
+export const combinedDietaryAdvice = asyncHandler(async (req: Request, res: Response) => {
+  const { medicines } = req.body as { medicines: string[] };
+  if (!Array.isArray(medicines) || medicines.length === 0) {
+    res.status(400).json({ success: false, error: 'medicines must be a non-empty array' });
+    return;
+  }
+  const result = await getCombinedDietaryAdvice(medicines);
   res.json({ success: true, data: result });
 });

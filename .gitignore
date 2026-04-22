@@ -1,15 +1,20 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output
-dist
-tmp
-out-tsc
+# Compiled output
+dist/
+tmp/
+out-tsc/
 *.tsbuildinfo
 .expo
 .expo-shared
 
-# dependencies
-node_modules
+# Dependencies
+node_modules/
+
+# Environment variables (sensitive!)
+.env
+.env.*
+!.env.example
 
 # IDEs and editors
 /.idea
@@ -27,7 +32,7 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
+# Misc
 /.sass-cache
 /connect.lock
 /coverage
@@ -41,9 +46,33 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
+# NX / Cursor / GitHub Copilot generated rules
+.cursor/
+.github/instructions/
 
-# Replit
+# Replit specific
+.replit
+.replitignore
+.replit-artifact/
 .cache/
 .local/
+
+# Large data files (too big for git)
+medicine_details.csv
+*.csv
+
+# Build artifacts & source maps
+*.map
+
+# Upload directories (user uploads, temp files)
+artifacts/api-server/uploads/
+
+# Scratch / test files
+artifacts/api-server/scratch-test.js
+
+# Agents
+.agents/
+
+# Lock files (optional — keep pnpm-lock.yaml for reproducibility, ignore others)
+package-lock.json
+yarn.lock

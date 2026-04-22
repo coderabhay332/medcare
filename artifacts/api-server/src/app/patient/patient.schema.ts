@@ -1,18 +1,17 @@
-import mongoose, { type Document, type Schema as SchemaType } from 'mongoose';
+import mongoose, { type Document } from 'mongoose';
 
 export interface IMedication {
-  brand: string;
-  composition: string;
-  salts: string[];
-  type: 'chronic' | 'vitamin' | 'as-needed';
-  addedOn: Date;
-  active: boolean;
+  name: string;
+  salt?: string;
+  dosage?: string;
+  frequency?: string;
+  addedAt: Date;
 }
 
 export interface IPatient extends Document {
   name: string;
-  age: number;
-  gender: string;
+  age?: number;
+  gender?: string;
   bloodGroup?: string;
   email: string;
   passwordHash: string;
@@ -24,24 +23,23 @@ export interface IPatient extends Document {
 }
 
 const medicationSchema = new mongoose.Schema<IMedication>({
-  brand: { type: String, required: true },
-  composition: { type: String, required: true },
-  salts: [{ type: String }],
-  type: { type: String, enum: ['chronic', 'vitamin', 'as-needed'], required: true },
-  addedOn: { type: Date, default: Date.now },
-  active: { type: Boolean, default: true },
+  name:      { type: String, required: true },
+  salt:      { type: String },
+  dosage:    { type: String },
+  frequency: { type: String },
+  addedAt:   { type: Date, default: Date.now },
 });
 
 const patientSchema = new mongoose.Schema<IPatient>(
   {
-    name: { type: String, required: true },
-    age: { type: Number, required: true },
-    gender: { type: String, required: true },
-    bloodGroup: { type: String },
-    email: { type: String, required: true, unique: true, lowercase: true },
+    name:        { type: String, required: true },
+    age:         { type: Number },
+    gender:      { type: String },
+    bloodGroup:  { type: String },
+    email:       { type: String, required: true, unique: true, lowercase: true },
     passwordHash: { type: String, required: true },
-    allergies: [{ type: String }],
-    conditions: [{ type: String }],
+    allergies:   [{ type: String }],
+    conditions:  [{ type: String }],
     currentMedications: [medicationSchema],
   },
   { timestamps: true }

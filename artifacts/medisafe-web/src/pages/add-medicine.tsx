@@ -74,7 +74,7 @@ function SearchTab() {
     debounceRef.current = setTimeout(async () => {
       try {
         const data = await api.medicines.search(q);
-        setResults(data.results ?? []);
+        setResults(data ?? []);
       } catch {
         setResults([]);
       } finally {

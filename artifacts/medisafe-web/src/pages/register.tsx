@@ -56,7 +56,7 @@ export default function RegisterPage() {
     if (step === 0) {
       if (!form.name.trim()) return setError("Name is required.");
       if (!form.email.trim()) return setError("Email is required.");
-      if (form.password.length < 6) return setError("Password must be at least 6 characters.");
+      if (form.password.length < 8) return setError("Password must be at least 8 characters.");
     }
     setStep((s) => s + 1);
   };
