@@ -1,3 +1,5 @@
+import type { AiCost } from '../../lib/priceTracker.js';
+
 export interface MedicineRecord {
   url?: string;
   brand_name: string;
@@ -26,4 +28,5 @@ export interface ScanResultDTO {
   extracted: string[];
   matched: Array<MedicineSearchResult & { confidence: number }>;
   unmatched: string[];
+  aiCosts: AiCost[];
 }

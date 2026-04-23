@@ -20,8 +20,8 @@ export interface AuthResponseDTO {
     id: string;
     name: string;
     email: string;
-    age: number;
-    gender: string;
+    age?: number;
+    gender?: string;
     bloodGroup?: string;
     allergies: string[];
     conditions: string[];

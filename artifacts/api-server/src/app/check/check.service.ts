@@ -10,6 +10,7 @@ import {
 import { getMedicineByBrand } from '../common/services/medicineIndex.js';
 import type { CheckRequestDTO, CheckResponseDTO, CheckResultItem } from './check.dto.js';
 import { logger } from '../../lib/logger.js';
+import { calculateCost, type AiCost } from '../../lib/priceTracker.js';
 
 interface InteractionResult {
   interacts: boolean;
@@ -17,6 +18,12 @@ interface InteractionResult {
   reason: string;
   problem: string;
   alternatives: string[];
+}
+
+function isSafetyAdviceRecord(
+  advice: string | Record<string, string> | undefined,
+): advice is Record<string, string> {
+  return Boolean(advice) && typeof advice === 'object';
 }
 
 async function checkOpenFDA(saltA: string, saltB: string): Promise<string | null> {
@@ -42,8 +49,13 @@ async function checkOpenFDA(saltA: string, saltB: string): Promise<string | null
 async function checkInteractionClaude(
   saltA: string,
   saltB: string,
-  conditions: string[]
+  conditions: string[],
+  aiCosts: AiCost[]
 ): Promise<InteractionResult> {
+  if (!claude) {
+    return { interacts: false, severity: 'none', reason: '', problem: '', alternatives: [] };
+  }
+
   try {
     const response = await claude.messages.create({
       model: HAIKU,
@@ -70,6 +82,9 @@ For alternatives, give 2-3 easy, actionable tips a caregiver can follow — timi
       ],
     });
 
+    const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
     const text = (response.content[0] as { text: string }).text.trim();
     const cleaned = text.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
     return JSON.parse(cleaned) as InteractionResult;
@@ -82,7 +97,8 @@ async function getInteractionAlternatives(
   saltA: string,
   saltB: string,
   brandA: string,
-  brandB: string
+  brandB: string,
+  aiCosts: AiCost[]
 ): Promise<{ problem: string; alternatives: string[] }> {
   if (!claude) return { problem: '', alternatives: [] };
   try {
@@ -107,6 +123,9 @@ For alternatives, give 2-3 simple steps — like when to take medicines, what to
         },
       ],
     });
+    const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
     const text = (response.content[0] as { text: string }).text.trim();
     const cleaned = text.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
     return JSON.parse(cleaned) as { problem: string; alternatives: string[] };
@@ -119,8 +138,11 @@ async function getDosageGuidance(
   brand: string,
   composition: string,
   conditions: string[],
-  age: number
+  age: number,
+  aiCosts: AiCost[]
 ): Promise<string> {
+  if (!claude) return 'Please ask your doctor or pharmacist how to take this medicine.';
+
   try {
     const response = await claude.messages.create({
       model: HAIKU,
@@ -135,14 +157,22 @@ In one simple sentence, explain the usual way to take this medicine — how many
         },
       ],
     });
+
+    const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
     return (response.content[0] as { text: string }).text.trim();
   } catch {
     return 'Please ask your doctor or pharmacist how to take this medicine.';
   }
 }
 
-async function getBannedExplanation(combination: string[]): Promise<string> {
+async function getBannedExplanation(combination: string[], aiCosts: AiCost[]): Promise<string> {
   const hash = combination.slice().sort().join('+');
+  if (!claude) {
+    return 'These medicines are not safe to take together. Please talk to your doctor immediately for a safer option.';
+  }
+
   try {
     const cached = await BannedExplanationModel.findOne({ combinationHash: hash });
     if (cached) {
@@ -169,6 +199,9 @@ In 1-2 simple sentences, explain in plain everyday language WHY this combination
     });
     const explanation = (response.content[0] as { text: string }).text.trim();
     
+    const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
     try {
       await BannedExplanationModel.create({ combinationHash: hash, explanation });
     } catch (e) {
@@ -195,6 +228,7 @@ export async function performCheck(
 
   const conditions = patient.conditions || [];
   const age = patient.age || 30;
+  const aiCosts: AiCost[] = [];
 
   // Resolve all provided medicines
   const resolvedMeds = await Promise.all(
@@ -216,7 +250,7 @@ export async function performCheck(
 
   const bannedExplanations = new Map<string, string>();
   for (const match of combinedBannedMatches) {
-    const explanation = await getBannedExplanation(match.combination);
+    const explanation = await getBannedExplanation(match.combination, aiCosts);
     bannedExplanations.set(match.combination.join('+'), explanation);
   }
 
@@ -230,7 +264,7 @@ export async function performCheck(
 
     if (medBannedMatches.length > 0) {
       const match = medBannedMatches[0];
-      const dosage = await getDosageGuidance(medA.brand, medA.composition, conditions, age);
+      const dosage = await getDosageGuidance(medA.brand, medA.composition, conditions, age, aiCosts);
       const explanation = bannedExplanations.get(match.combination.join('+')) || '';
       results.push({
         medicine: medA.brand,
@@ -268,7 +302,7 @@ export async function performCheck(
                worstConflict = medB.brand;
                worstReason = 'Interaction flagged by the FDA drug label database.';
                worstSource = 'openFDA';
-               const alts = await getInteractionAlternatives(saltA, saltB, medA.brand, medB.brand);
+               const alts = await getInteractionAlternatives(saltA, saltB, medA.brand, medB.brand, aiCosts);
                worstProblem = alts.problem;
                worstAlternatives = alts.alternatives;
             }
@@ -289,7 +323,7 @@ export async function performCheck(
               worstReason = rxNavResult.description || 'Interaction documented in NLM RxNav database.';
               worstSource = 'rxnav';
               // Get actionable alternatives from Claude (we still use it for guidance, not detection)
-              const alts = await getInteractionAlternatives(saltA, saltB, medA.brand, medB.brand);
+              const alts = await getInteractionAlternatives(saltA, saltB, medA.brand, medB.brand, aiCosts);
               worstProblem = alts.problem;
               worstAlternatives = alts.alternatives;
             }
@@ -297,7 +331,7 @@ export async function performCheck(
           }
 
           // ── LAYER 3: Claude (last resort) ────────────────────────────────
-          const claudeResult = await checkInteractionClaude(saltA, saltB, conditions);
+          const claudeResult = await checkInteractionClaude(saltA, saltB, conditions, aiCosts);
           if (claudeResult.interacts) {
             const severityRank = { none: 0, mild: 1, moderate: 2, severe: 3 };
             if (severityRank[claudeResult.severity] > severityRank[worstSeverity]) {
@@ -313,8 +347,10 @@ export async function performCheck(
       }
 
       // ── Organ burden check (uses scraped safety_advice data) ──────────────
-      if (medA.safety_advice && medB.safety_advice) {
-         if (medA.safety_advice.Liver === 'UNSAFE' && medB.safety_advice.Liver === 'UNSAFE' && worstSeverity === 'none') {
+      const safetyA = isSafetyAdviceRecord(medA.safety_advice) ? medA.safety_advice : undefined;
+      const safetyB = isSafetyAdviceRecord(medB.safety_advice) ? medB.safety_advice : undefined;
+      if (safetyA && safetyB) {
+         if (safetyA['Liver'] === 'UNSAFE' && safetyB['Liver'] === 'UNSAFE' && worstSeverity === 'none') {
             worstSeverity = 'moderate';
             worstConflict = medB.brand;
             worstReason = 'Both medicines can be hard on the liver when taken together.';
@@ -322,7 +358,7 @@ export async function performCheck(
             worstAlternatives = ['Get a liver test (LFT) done regularly as your doctor suggests', 'Do not drink alcohol while on both medicines', 'Tell your doctor right away if you notice yellowing of the skin or eyes, dark urine, or unusual tiredness'];
             worstSource = 'organ_burden';
          }
-         if (medA.safety_advice.Kidney === 'UNSAFE' && medB.safety_advice.Kidney === 'UNSAFE' && worstSeverity === 'none') {
+         if (safetyA['Kidney'] === 'UNSAFE' && safetyB['Kidney'] === 'UNSAFE' && worstSeverity === 'none') {
             worstSeverity = 'moderate';
             worstConflict = medB.brand;
             worstReason = 'Both medicines can put extra pressure on the kidneys when used together.';
@@ -334,7 +370,7 @@ export async function performCheck(
 
       // Record the worst finding for this pair — push once, pair contains both names
       if (worstSeverity !== 'none') {
-        const dosageA = await getDosageGuidance(medA.brand, medA.composition, conditions, age);
+        const dosageA = await getDosageGuidance(medA.brand, medA.composition, conditions, age, aiCosts);
         results.push({
           medicine: medA.brand,
           status: worstSeverity === 'severe' ? 'interaction' : 'warning',
@@ -379,5 +415,5 @@ export async function performCheck(
     logger.error({ err }, 'Failed to save check history');
   }
 
-  return { safe, summary, results };
+  return { safe, summary, results, aiCosts };
 }

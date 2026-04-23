@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { calculateCost, type AiCost } from '../../../lib/priceTracker.js';
 
 // Uses Google Gemini API key from environment variables:
 //   GEMINI_API_KEY — get yours free at https://aistudio.google.com/app/apikey
@@ -39,6 +40,7 @@ No explanation. No markdown. Just the raw JSON array.`;
 export async function extractWithGemini(
   imageBuffer: Buffer,
   mimeType: string,
+  aiCosts: AiCost[]
 ): Promise<string[] | null> {
   if (!genAI) {
     console.info('[scan:gemini] GEMINI_API_KEY not set — skipping Gemini');
@@ -74,6 +76,10 @@ export async function extractWithGemini(
       console.warn('[scan:gemini] Did not return an array, got:', typeof parsed);
       return null;
     }
+
+    // Gemini is free, so cost 0
+    const cost = calculateCost(GEMINI_MODEL, 0, 0);
+    aiCosts.push({ model: GEMINI_MODEL, inputTokens: 0, outputTokens: 0, cost });
 
     return parsed as string[];
   } catch (err: unknown) {

@@ -1,28 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/lib/auth";
-import { api, type PatientProfile, type CheckResponse, type CombinedDietaryResult, type CombinedAvoidItem, type MealScheduleItem, type MedicineTip } from "@/lib/api";
+import { api, type PatientProfile, type CheckResponse, type CombinedDietaryResult } from "@/lib/api";
 import {
-  ShieldCheck,
   Shield,
   PlusCircle,
   Pill,
   AlertTriangle,
-  CheckCircle,
   ChevronRight,
   ChevronDown,
   Loader2,
   UtensilsCrossed,
-  Leaf,
-  Lightbulb,
   X,
   Trash2,
-  Clock,
-  Coffee,
-  Utensils,
-  Moon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CombinedDietaryPanel } from "@/components/DietaryPanel";
+
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -115,7 +109,11 @@ export default function DashboardPage() {
     if (!dietaryAdvice && !dietaryLoading && medNames.length > 0) {
       setDietaryLoading(true);
       try {
-        const result = await api.medicines.getCombinedDietaryAdvice(medNames);
+        // Build condition context from active (non-recovered) conditionRecords
+        const conditionContext = (profile?.conditionRecords ?? [])
+          .filter((r) => !r.resolvedAt && (r.foodsToAvoid.length > 0 || r.foodsToEat.length > 0))
+          .map((r) => ({ condition: r.name, foodsToAvoid: r.foodsToAvoid, foodsToEat: r.foodsToEat }));
+        const result = await api.medicines.getCombinedDietaryAdvice(medNames, conditionContext.length > 0 ? conditionContext : undefined);
         setDietaryAdvice(result);
       } catch {
         setDietaryAdvice({ medicines: medNames, avoid: [], safeToEat: [], mealSchedule: [], medicineTips: [], generalTips: [], cached: false });
@@ -516,167 +514,4 @@ function DashboardSourceBadge({ source }: { source: string }) {
   );
 }
 
-// ── Meal timing config ─────────────────────────────────────────────────────────
-const TIMING_CONFIG = {
-  before:        { label: "Before Meals",     icon: Coffee,      bg: "bg-amber-50",  border: "border-amber-200",  text: "text-amber-700",  badge: "bg-amber-100" },
-  after:         { label: "After Meals",      icon: Utensils,    bg: "bg-green-50",  border: "border-green-200",  text: "text-green-700",  badge: "bg-green-100" },
-  empty_stomach: { label: "Empty Stomach",    icon: Moon,        bg: "bg-blue-50",   border: "border-blue-200",   text: "text-blue-700",   badge: "bg-blue-100" },
-  any:           { label: "Anytime",          icon: Clock,       bg: "bg-muted",     border: "border-border",     text: "text-foreground", badge: "bg-accent" },
-};
-
-const SEVERITY_CONFIG = {
-  high:     { label: "High Risk",   cls: "bg-red-100 text-red-700 border-red-300" },
-  moderate: { label: "Caution",     cls: "bg-orange-100 text-orange-700 border-orange-300" },
-  low:      { label: "Mild",        cls: "bg-yellow-100 text-yellow-700 border-yellow-200" },
-};
-
-const CAT_ICON: Record<string, React.ElementType> = {
-  Foods: UtensilsCrossed,
-  Drinks: Coffee,
-  Supplements: Leaf,
-  "Herbs & Home Remedies": Leaf,
-};
-
-// ── Combined Dietary Panel ─────────────────────────────────────────────────────
-function CombinedDietaryPanel({ advice }: { advice: CombinedDietaryResult }) {
-  const [safeExpanded, setSafeExpanded] = useState(false);
-
-  return (
-    <div className="p-5 space-y-6">
-
-      {/* ── 1. Meal Timing Schedule ─────────────────────────────────────────── */}
-      {advice.mealSchedule && advice.mealSchedule.length > 0 && (
-        <div>
-          <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-3 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" /> When to Take Your Medicines
-          </p>
-          <div className="grid gap-2">
-            {advice.mealSchedule.map((item: MealScheduleItem, i: number) => {
-              const cfg = TIMING_CONFIG[item.timing] ?? TIMING_CONFIG.any;
-              const Icon = cfg.icon;
-              return (
-                <div key={i} className={cn("flex items-start gap-3 p-3 rounded-xl border", cfg.bg, cfg.border)}>
-                  <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0", cfg.badge)}>
-                    <Icon className={cn("w-4 h-4", cfg.text)} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-semibold text-foreground truncate">{item.medicine}</span>
-                      <span className={cn("text-[10px] font-bold px-2 py-0.5 rounded-full", cfg.badge, cfg.text)}>{cfg.label}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{item.note}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* ── 2. What to Avoid ────────────────────────────────────────────────── */}
-      {advice.avoid.length > 0 && (
-        <div>
-          <p className="text-xs font-semibold text-destructive uppercase tracking-wide mb-3 flex items-center gap-1.5">
-            <X className="w-3.5 h-3.5" /> What to Avoid
-          </p>
-          <div className="space-y-3">
-            {advice.avoid.map((cat: CombinedAvoidItem, i: number) => {
-              const Icon = CAT_ICON[cat.category] ?? UtensilsCrossed;
-              return (
-                <div key={i} className="p-3 rounded-xl bg-red-50 border border-red-100">
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <Icon className="w-3.5 h-3.5 text-red-600" />
-                    <span className="text-xs font-semibold text-red-800">{cat.category}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 mb-2">
-                    {cat.items.map((item, j: number) => {
-                      const name   = typeof item === 'string' ? item : item.name;
-                      const sev    = typeof item === 'string' ? 'moderate' : item.severity;
-                      const ctx    = typeof item === 'string' ? '' : item.timingContext;
-                      const sevCfg = SEVERITY_CONFIG[sev] ?? SEVERITY_CONFIG.moderate;
-                      return (
-                        <div key={j} className="flex flex-col gap-0.5">
-                          <span className={cn("px-2 py-0.5 rounded-full border text-xs font-medium inline-flex items-center gap-1", sevCfg.cls)}>
-                            {sev === 'high' ? '🚫' : sev === 'moderate' ? '⚠️' : '💡'} {name}
-                          </span>
-                          {ctx && (
-                            <span className="text-[10px] text-muted-foreground px-1">{ctx}</span>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p className="text-[11px] text-red-600/80 leading-relaxed">{cat.reason}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* ── 3. Per-Medicine Tips ────────────────────────────────────────────── */}
-      {advice.medicineTips && advice.medicineTips.length > 0 && (
-        <div>
-          <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-3 flex items-center gap-1.5">
-            <Lightbulb className="w-3.5 h-3.5" /> Medicine Tips
-          </p>
-          <div className="space-y-2">
-            {advice.medicineTips.map((mt: MedicineTip, i: number) => (
-              <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-blue-50 border border-blue-100">
-                <Pill className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
-                <div>
-                  <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wide">{mt.medicine}</span>
-                  <p className="text-xs text-foreground/80 leading-relaxed mt-0.5">{mt.tip}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── 4. General Tips ─────────────────────────────────────────────────── */}
-      {advice.generalTips.length > 0 && (
-        <div>
-          <p className="text-xs font-semibold text-foreground/60 uppercase tracking-wide mb-2 flex items-center gap-1.5">
-            <Lightbulb className="w-3.5 h-3.5" /> General Tips
-          </p>
-          <ul className="space-y-1.5">
-            {advice.generalTips.map((tip: string, i: number) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-foreground/70 leading-relaxed">
-                <span className="text-muted-foreground mt-0.5 shrink-0">•</span>
-                {tip}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* ── 5. Safe to Eat (collapsible chip row) ───────────────────────────── */}
-      {advice.safeToEat.length > 0 && (
-        <div>
-          <button
-            onClick={() => setSafeExpanded(e => !e)}
-            className="flex items-center gap-1.5 text-xs font-semibold text-green-700 mb-2 hover:opacity-80 transition-opacity"
-          >
-            <CheckCircle className="w-3.5 h-3.5" />
-            Safe to eat with your medicines
-            <ChevronDown className={cn("w-3.5 h-3.5 ml-1 transition-transform", safeExpanded && "rotate-180")} />
-          </button>
-          {safeExpanded && (
-            <div className="flex flex-wrap gap-1.5">
-              {advice.safeToEat.map((food: string, i: number) => (
-                <span key={i} className="px-2.5 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-medium">
-                  ✓ {food}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-
-      <p className="text-[10px] text-muted-foreground border-t border-border pt-3">
-        AI-generated guidance for Indian patients. Always confirm with your doctor or pharmacist.
-      </p>
-    </div>
-  );
-}
+// CombinedDietaryPanel is now in @/components/DietaryPanel.tsx

@@ -26,6 +26,9 @@ importers:
       '@google/generative-ai':
         specifier: ^0.21.0
         version: 0.21.0
+      '@types/pdf-parse':
+        specifier: ^1.1.4
+        version: 1.1.5
       '@workspace/api-zod':
         specifier: workspace:*
         version: link:../../lib/api-zod
@@ -77,6 +80,9 @@ importers:
       passport-local:
         specifier: ^1.0.0
         version: 1.0.0
+      pdf-parse:
+        specifier: ^1.1.1
+        version: 1.1.4
       pino:
         specifier: ^9
         version: 9.14.0

@@ -1,3 +1,5 @@
+import type { AiCost } from '../../lib/priceTracker.js';
+
 export interface CheckRequestDTO {
   medicines: string[];
 }
@@ -19,4 +21,5 @@ export interface CheckResponseDTO {
   safe: boolean;
   summary: string;
   results: CheckResultItem[];
+  aiCosts: AiCost[];
 }

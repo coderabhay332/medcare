@@ -1,3 +1,10 @@
+export interface LabResultEntry {
+  name: string;
+  value: string;
+  unit: string;
+  date?: Date;
+}
+
 export interface MedicationEntry {
   name: string;
   salt?: string;
@@ -17,7 +24,9 @@ export interface CreatePatientDTO {
   conditions?: string[];
 }
 
-export type UpdatePatientDTO = Partial<Omit<CreatePatientDTO, 'email' | 'password'>>;
+export type UpdatePatientDTO = Partial<Omit<CreatePatientDTO, 'email' | 'password'>> & {
+  labResults?: LabResultEntry[];
+};
 
 export interface AddMedicationDTO {
   name: string;

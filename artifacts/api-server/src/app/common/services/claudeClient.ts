@@ -16,14 +16,14 @@ export const claude = isAnthropicConfigured
 // claude-haiku-4-5-20251001  — widely available, cheapest
 // claude-sonnet-4-6          — high quality, vision capable
 
-/** Claude 4.5 Haiku — widely available, cheapest vision-capable fallback */
+/** Claude 4.5 Haiku — cheapest, used for simple text tasks (dietary advice, scan fallback) */
 export const HAIKU = 'claude-haiku-4-5-20251001';
 
-/** Claude 4.5 Haiku (newer) */
-export const HAIKU_35 = 'claude-haiku-4-5-20251001';
-
-/** Claude 4.6 Sonnet — vision capable, high quality */
-export const SONNET_35 = 'claude-sonnet-4-6';
+/**
+ * Claude Sonnet 4.6 — full vision + long-context reasoning.
+ * Used for medical report extraction where accuracy matters over cost.
+ */
+export const REPORT_MODEL = 'claude-sonnet-4-6';
 
 /**
  * Model used for medicine label scanning — FALLBACK only.

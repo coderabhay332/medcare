@@ -33,7 +33,8 @@ export const scan = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const dietaryAdvice = asyncHandler(async (req: Request, res: Response) => {
-  const name = req.params['name'];
+  const rawName = req.params['name'];
+  const name = Array.isArray(rawName) ? rawName[0] : rawName;
   if (!name || name.trim().length < 2) {
     res.status(400).json({ success: false, error: 'Medicine name is required' });
     return;
@@ -43,11 +44,14 @@ export const dietaryAdvice = asyncHandler(async (req: Request, res: Response) =>
 });
 
 export const combinedDietaryAdvice = asyncHandler(async (req: Request, res: Response) => {
-  const { medicines } = req.body as { medicines: string[] };
+  const { medicines, conditionContext } = req.body as {
+    medicines: string[];
+    conditionContext?: { condition: string; foodsToAvoid: string[]; foodsToEat: string[] }[];
+  };
   if (!Array.isArray(medicines) || medicines.length === 0) {
     res.status(400).json({ success: false, error: 'medicines must be a non-empty array' });
     return;
   }
-  const result = await getCombinedDietaryAdvice(medicines);
+  const result = await getCombinedDietaryAdvice(medicines, conditionContext);
   res.json({ success: true, data: result });
 });

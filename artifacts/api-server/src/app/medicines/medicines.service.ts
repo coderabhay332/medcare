@@ -1,8 +1,9 @@
 import { searchMedicines } from '../common/services/medicineIndex.js';
-import { claude, HAIKU, isAnthropicConfigured } from '../common/services/claudeClient.js';
+import { claude, HAIKU, SCAN_MODEL, isAnthropicConfigured } from '../common/services/claudeClient.js';
 import { extractWithGemini, SCAN_PROMPT } from '../common/services/geminiClient.js';
 import { DietaryAdviceModel, CombinedDietaryAdviceModel } from '../check/check.schema.js';
 import type { MedicineSearchResult, ScanResultDTO } from './medicines.dto.js';
+import { calculateCost, type AiCost } from '../../lib/priceTracker.js';
 
 export async function searchMedicinesByQuery(query: string): Promise<MedicineSearchResult[]> {
   return searchMedicines(query, 10);
@@ -18,20 +19,22 @@ export interface DietaryAdviceResult {
   medicine: string;
   items: DietaryAdviceItem[];
   cached: boolean;
+  aiCosts: AiCost[];
 }
 
 export async function getDietaryAdvice(medicineName: string): Promise<DietaryAdviceResult> {
   const key = medicineName.trim().toLowerCase();
+  const aiCosts: AiCost[] = [];
 
   // 1. Check cache first
   const cached = await DietaryAdviceModel.findOne({ medicineKey: key });
   if (cached) {
-    return { medicine: medicineName, items: cached.items as DietaryAdviceItem[], cached: true };
+    return { medicine: medicineName, items: cached.items as DietaryAdviceItem[], cached: true, aiCosts };
   }
 
   // 2. Ask Claude
   if (!claude) {
-    return { medicine: medicineName, items: [], cached: false };
+    return { medicine: medicineName, items: [], cached: false, aiCosts };
   }
 
   const prompt = `You are a clinical pharmacist. A patient is taking "${medicineName}".
@@ -50,6 +53,9 @@ Include only categories with actual items. Keep each item concise (2–5 words).
     messages: [{ role: 'user', content: prompt }],
   });
 
+  const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+  aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
   const rawText = (response.content[0] as { text: string }).text.trim();
   let items: DietaryAdviceItem[] = [];
 
@@ -63,7 +69,7 @@ Include only categories with actual items. Keep each item concise (2–5 words).
   // 3. Cache for future requests
   await DietaryAdviceModel.create({ medicineKey: key, items, rawAdvice: rawText });
 
-  return { medicine: medicineName, items, cached: false };
+  return { medicine: medicineName, items, cached: false, aiCosts };
 }
 
 export interface CombinedAvoidItem {
@@ -91,11 +97,23 @@ export interface CombinedDietaryResult {
   medicineTips: MedicineTip[];
   generalTips: string[];
   cached: boolean;
+  aiCosts: AiCost[];
 }
 
-export async function getCombinedDietaryAdvice(medicines: string[]): Promise<CombinedDietaryResult> {
-  // v2: schema version prefix — bumping this invalidates all prior cached entries
-  const hash = 'v2|' + medicines.map(m => m.trim().toLowerCase()).sort().join('|');
+interface ConditionFoodContext {
+  condition: string;
+  foodsToAvoid: string[];
+  foodsToEat: string[];
+}
+
+export async function getCombinedDietaryAdvice(
+  medicines: string[],
+  conditionContext?: ConditionFoodContext[]
+): Promise<CombinedDietaryResult> {
+  // v3: adds condition context to hash so different patients get different advice
+  const conditionHash = (conditionContext ?? []).map(c => c.condition.toLowerCase()).sort().join('|');
+  const hash = 'v3|' + medicines.map(m => m.trim().toLowerCase()).sort().join('|') + (conditionHash ? '|' + conditionHash : '');
+  const aiCosts: AiCost[] = [];
 
   // 1. Check cache
   const cached = await CombinedDietaryAdviceModel.findOne({ medicinesHash: hash });
@@ -108,15 +126,28 @@ export async function getCombinedDietaryAdvice(medicines: string[]): Promise<Com
       medicineTips: (cached.medicineTips ?? []) as MedicineTip[],
       generalTips:  cached.generalTips,
       cached: true,
+      aiCosts,
     };
   }
 
   // 2. Ask Claude
   if (!claude) {
-    return { medicines, avoid: [], safeToEat: [], mealSchedule: [], medicineTips: [], generalTips: [], cached: false };
+    return { medicines, avoid: [], safeToEat: [], mealSchedule: [], medicineTips: [], generalTips: [], cached: false, aiCosts };
   }
 
   const medList = medicines.join(', ');
+
+  // Build condition-specific food warnings section
+  let conditionSection = '';
+  if (conditionContext && conditionContext.length > 0) {
+    const activeConditions = conditionContext.filter(c => c.foodsToAvoid.length > 0 || c.foodsToEat.length > 0);
+    if (activeConditions.length > 0) {
+      conditionSection = `\n\nIMPORTANT — Patient-specific condition warnings (from their uploaded medical report):
+${activeConditions.map(c => `- ${c.condition}: AVOID [${c.foodsToAvoid.join(', ')}] | SAFE: [${c.foodsToEat.join(', ')}]`).join('\n')}
+You MUST include these condition-specific foods in the avoid list with reason citing the patient's condition.`;
+    }
+  }
+
   const prompt = `You are a clinical pharmacist writing advice for patients and caregivers in India.
 A patient is taking all of these medicines together: ${medList}.
 
@@ -127,7 +158,7 @@ IMPORTANT — flag Indian-specific risks if relevant:
 - Amla (Indian gooseberry) with blood thinners (warfarin, aspirin, clopidogrel) increases bleeding risk
 - Ashwagandha with propranolol or sedatives can increase drowsiness
 - Tulsi (holy basil) with blood thinners can increase bleeding
-- Methi (fenugreek seeds) with diabetes medicines can cause very low blood sugar
+- Methi (fenugreek seeds) with diabetes medicines can cause very low blood sugar${conditionSection}
 
 Respond ONLY as valid JSON (no markdown, no code fences):
 {
@@ -163,6 +194,9 @@ Rules:
     messages: [{ role: 'user', content: prompt }],
   });
 
+  const cost = calculateCost(HAIKU, response.usage.input_tokens, response.usage.output_tokens);
+  aiCosts.push({ model: HAIKU, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
+
   const rawText = (response.content[0] as { text: string }).text.trim();
   let avoid: CombinedAvoidItem[] = [];
   let safeToEat: string[] = [];
@@ -191,7 +225,7 @@ Rules:
   // 3. Save to cache
   await CombinedDietaryAdviceModel.create({ medicinesHash: hash, avoid, safeToEat, mealSchedule, medicineTips, generalTips });
 
-  return { medicines, avoid, safeToEat, mealSchedule, medicineTips, generalTips, cached: false };
+  return { medicines, avoid, safeToEat, mealSchedule, medicineTips, generalTips, cached: false, aiCosts };
 }
 
 /**
@@ -204,9 +238,10 @@ export async function extractMedicinesFromImage(
   mimeType: string,
 ): Promise<ScanResultDTO> {
   let extracted: string[] = [];
+  const aiCosts: AiCost[] = [];
 
   // ── Tier 1: Gemini Flash (free) ─────────────────────────────────────────────
-  const geminiResult = await extractWithGemini(imageBuffer, mimeType);
+  const geminiResult = await extractWithGemini(imageBuffer, mimeType, aiCosts);
 
   if (geminiResult !== null) {
     console.log('[scan] Using Gemini Flash result — free tier');
@@ -216,7 +251,7 @@ export async function extractMedicinesFromImage(
   } else {
     // ── Tier 2: Claude Haiku (paid fallback) ──────────────────────────────────
     console.log('[scan] Gemini unavailable — falling back to Claude Haiku');
-    extracted = await extractWithClaude(imageBuffer, mimeType);
+    extracted = await extractWithClaude(imageBuffer, mimeType, aiCosts);
   }
 
   // ── Match each extracted name against MongoDB ──────────────────────────────
@@ -238,14 +273,14 @@ export async function extractMedicinesFromImage(
     }),
   );
 
-  return { extracted, matched, unmatched };
+  return { extracted, matched, unmatched, aiCosts };
 }
 
 /**
  * Claude Haiku fallback extractor — paid but cheap ($0.80/1M tokens).
  * Used when Gemini is not configured or returns an error.
  */
-async function extractWithClaude(imageBuffer: Buffer, mimeType: string): Promise<string[]> {
+async function extractWithClaude(imageBuffer: Buffer, mimeType: string, aiCosts: AiCost[]): Promise<string[]> {
   if (!claude) {
     console.info('[scan:claude] ANTHROPIC_API_KEY not set — skipping Claude');
     return [];
@@ -294,6 +329,9 @@ async function extractWithClaude(imageBuffer: Buffer, mimeType: string): Promise
       console.warn('[scan:claude] Did not return an array, got:', typeof parsed);
       return [];
     }
+
+    const cost = calculateCost(SCAN_MODEL, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model: SCAN_MODEL, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
 
     return parsed as string[];
   } catch (err: unknown) {

@@ -29,22 +29,62 @@ export interface Medication {
 }
 
 
+export interface LabResult {
+  _id: string;
+  name: string;
+  value: string;
+  unit: string;
+  status?: string;
+  referenceRange?: string;
+  date?: string;
+}
+
+export interface ReportSummary {
+  _id: string;
+  date: string;
+  summary: string;
+  keyFindings?: ReportFinding[];
+  foodsToEat?: string[];
+  foodsToAvoid?: string[];
+  precautions?: string[];
+  followUpQuestions?: string[];
+  urgentWarnings?: string[];
+}
+
+export interface ConditionRecord {
+  _id: string;
+  name: string;
+  diagnosedAt?: string;
+  resolvedAt?: string;
+  source: 'manual' | 'report';
+  precautions: string[];
+  foodsToAvoid: string[];
+  foodsToEat: string[];
+}
+
 export interface PatientProfile {
   _id: string;
   name: string;
   email: string;
   age?: number;
   weight?: number;
+  gender?: string;
+  bloodGroup?: string;
   conditions: string[];
   allergies: string[];
-  medications: Medication[];       // mapped from currentMedications
-  currentMedications?: Medication[]; // raw field from backend
+  medications: Medication[];
+  currentMedications?: Medication[];
+  labResults?: LabResult[];
+  reportSummaries?: ReportSummary[];
+  conditionRecords?: ConditionRecord[];   // rich condition history from reports
   createdAt: string;
 }
 
 
 export interface CheckResultItem {
-  pair: [string, string];
+  pair: string[];
+  medicine?: string;
+  conflictsWith?: string | null;
   severity: "none" | "mild" | "moderate" | "severe";
   reason: string;
   problem: string;
@@ -64,6 +104,7 @@ export interface ScanResult {
   medicines: string[];      // extracted medicine names shown to the user
   matched: { name: string; [k: string]: unknown }[];
   unmatched: string[];
+  rawText?: string;
 }
 
 export interface DietaryAdviceItem {
@@ -103,6 +144,75 @@ export interface CombinedDietaryResult {
   medicineTips: MedicineTip[];
   generalTips: string[];
   cached: boolean;
+}
+
+// ── Report upload types ──────────────────────────────────────────────────────
+
+export interface ExtractedLabResult {
+  name: string;
+  value: string;
+  unit: string;
+  status?: string;
+  referenceRange?: string;
+}
+
+export interface ResolvedMedication {
+  rawName: string;         // e.g. "Tab. Augmentin 625"
+  resolvedName: string;    // e.g. "Augmentin 625 Duo Tablet"
+  resolvedSalt: string;    // e.g. "Amoxycillin (500mg) + Clavulanic Acid (125mg)"
+  dosage?: string;
+  frequency?: string;
+  matchConfidence: 'high' | 'low';
+}
+
+export interface UnresolvedMedication {
+  rawName: string;
+  dosage?: string;
+  frequency?: string;
+}
+
+export interface ReportPatientInfo {
+  name?: string;
+  age?: number;
+  gender?: string;
+  bloodGroup?: string;
+}
+
+export interface ConditionInsight {
+  condition: string;
+  precautions: string[];
+  foodsToAvoid: string[];
+  foodsToEat: string[];
+}
+
+export interface ReportFinding {
+  title: string;
+  evidence?: string;
+  meaning: string;
+  severity: 'normal' | 'watch' | 'needs_attention' | 'urgent';
+}
+
+export interface ReportAnalysis {
+  overview: string;
+  keyFindings: ReportFinding[];
+  foodsToEat: string[];
+  foodsToAvoid: string[];
+  precautions: string[];
+  followUpQuestions: string[];
+  urgentWarnings: string[];
+}
+
+export interface ReportPreviewData {
+  reportDate?: string;
+  reportSummary?: string;
+  reportAnalysis?: ReportAnalysis;
+  patientInfo: ReportPatientInfo;
+  conditions: string[];
+  conditionInsights: ConditionInsight[];
+  allergies: string[];
+  medications: ResolvedMedication[];
+  unresolvedMedications: UnresolvedMedication[];
+  labResults: ExtractedLabResult[];
 }
 
 function getToken(): string | null {
@@ -172,6 +282,33 @@ export const api = {
         ...p,
         medications: p.currentMedications ?? p.medications ?? [],
       })),
+    parseReport: (file: File): Promise<ReportPreviewData> => {
+      const fd = new FormData();
+      fd.append("report", file);
+      return fetch(`${BASE}/patient/parse-report`, {
+        method: "POST",
+        headers: { ...authHeaders() } as Record<string, string>,
+        body: fd,
+      }).then(async (r) => {
+        const envelope = await r.json().catch(() => ({})) as ApiEnvelope<ReportPreviewData>;
+        if (!r.ok) throw new Error(envelope.message ?? envelope.error ?? `HTTP ${r.status}`);
+        return (envelope.data ?? envelope) as ReportPreviewData;
+      });
+    },
+    resolveCondition: (conditionName: string) =>
+      request<PatientProfile>(`/patient/conditions/${encodeURIComponent(conditionName)}/resolve`, {
+        method: 'PATCH',
+      }).then((p) => ({ ...p, medications: p.currentMedications ?? p.medications ?? [] })),
+    saveConditionRecords: (records: Omit<ConditionRecord, '_id'>[]) =>
+      request<PatientProfile>('/patient/condition-records', {
+        method: 'POST',
+        body: JSON.stringify({ records }),
+      }).then((p) => ({ ...p, medications: p.currentMedications ?? p.medications ?? [] })),
+    saveReportData: (data: any) =>
+      request<PatientProfile>('/patient/report-data', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }).then((p) => ({ ...p, medications: p.currentMedications ?? p.medications ?? [] })),
   },
 
   medicines: {
@@ -201,15 +338,19 @@ export const api = {
           medicines: inner.extracted ?? [],
           matched: inner.matched ?? [],
           unmatched: inner.unmatched ?? [],
+          rawText: (inner as { rawText?: string }).rawText,
         } as ScanResult;
       });
     },
     getDietaryAdvice: (name: string) =>
       request<DietaryAdviceResult>(`/medicines/dietary-advice/${encodeURIComponent(name)}`),
-    getCombinedDietaryAdvice: (medicines: string[]) =>
+    getCombinedDietaryAdvice: (
+      medicines: string[],
+      conditionContext?: { condition: string; foodsToAvoid: string[]; foodsToEat: string[] }[]
+    ) =>
       request<CombinedDietaryResult>('/medicines/combined-dietary-advice', {
         method: 'POST',
-        body: JSON.stringify({ medicines }),
+        body: JSON.stringify({ medicines, conditionContext }),
       }),
   },
 
@@ -219,6 +360,8 @@ export const api = {
         const results = res.results || [];
         const mappedResults = results.map((r: any) => ({
           pair: [r.medicine, r.conflictsWith].filter(Boolean),
+          medicine: r.medicine,
+          conflictsWith: r.conflictsWith ?? null,
           severity: r.severity || "none",
           reason: r.reason || "",
           problem: r.problem || "",

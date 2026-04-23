@@ -7,6 +7,10 @@ export const updateProfileValidation = [
   body('bloodGroup').optional().isString(),
   body('allergies').optional().isArray(),
   body('conditions').optional().isArray(),
+  body('labResults').optional().isArray(),
+  body('labResults.*.name').optional({ nullable: true }).isString(),
+  body('labResults.*.value').optional({ nullable: true }).isString(),
+  body('labResults.*.unit').optional({ nullable: true }).isString(),
 ];
 
 export const addMedicationValidation = [
@@ -19,4 +23,3 @@ export const addMedicationValidation = [
 export const medicationIdValidation = [
   param('medId').isMongoId().withMessage('Invalid medication ID'),
 ];
-
