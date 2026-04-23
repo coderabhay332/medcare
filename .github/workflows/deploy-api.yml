@@ -77,12 +77,17 @@ jobs:
           port:     22
           script: |
             set -e
-            DEPLOY_DIR="${{ secrets.EC2_DEPLOY_PATH }}"
+            DEPLOY_DIR=$(printf '%s' "${{ secrets.EC2_DEPLOY_PATH }}")
 
             echo "── Extracting build ──────────────────"
             cd "$DEPLOY_DIR"
             tar -xzf api-server-dist.tar.gz
             rm  api-server-dist.tar.gz
+
+            if [ -n "${{ secrets.ENV_FILE }}" ]; then
+              echo "── Writing .env file ───────────"
+              printf "%s" "${{ secrets.ENV_FILE }}" > .env
+            fi
 
             echo "── Installing prod dependencies ──────"
             # Only install production deps (no devDependencies)
