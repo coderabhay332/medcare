@@ -34,6 +34,10 @@ app.use(express.urlencoded({ extended: true }));
 setupPassport();
 app.use(passport.initialize());
 
+app.get("/health", (req, res) => {
+  res.send("ok");
+});
+
 app.use("/api", router);
 
 export default app;
