@@ -39,7 +39,7 @@ jobs:
 
       # ── 4. Install dependencies ────────────────────────────────────────────
       - name: Install dependencies
-  run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       # ── 5. Build api-server ────────────────────────────────────────────────
       - name: Build api-server
