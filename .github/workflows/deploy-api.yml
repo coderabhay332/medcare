@@ -48,6 +48,10 @@ jobs:
       # node_modules are installed fresh on the server
       - name: Package dist
         run: |
+          # Strip workspace dependencies since they are already bundled by esbuild
+          jq 'del(.dependencies[] | select(. == "workspace:*"))' artifacts/api-server/package.json > artifacts/api-server/package.prod.json
+          mv artifacts/api-server/package.prod.json artifacts/api-server/package.json
+          
           tar -czf api-server-dist.tar.gz \
             -C artifacts/api-server \
             dist/ \
