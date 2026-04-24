@@ -111,11 +111,11 @@ jobs:
 
             echo "── Reloading PM2 ─────────────────────"
             # 'reload' does a graceful zero-downtime restart
-            pm2 reload ecosystem.config.cjs --update-env \
-              || pm2 start ecosystem.config.cjs
+            npx pm2 reload ecosystem.config.cjs --update-env \
+              || npx pm2 start ecosystem.config.cjs
 
             echo "── Saving PM2 state ──────────────────"
-            pm2 save
+            npx pm2 save
 
             echo "── Done ✓ ────────────────────────────"
-            pm2 list
+            npx pm2 list
