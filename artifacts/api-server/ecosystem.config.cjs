@@ -10,7 +10,7 @@ module.exports = {
       script: './dist/index.mjs',
 
       // Interpreter args passed to node
-      node_args: '--enable-source-maps',
+      node_args: '--enable-source-maps --env-file=.env',
 
       // Number of instances:
       //   1 = single process (safe default for MongoDB connection pooling)
@@ -37,12 +37,6 @@ module.exports = {
       env_production: {
         NODE_ENV:          'production',
         PORT:              '8080',
-        // The following should be set as real values on your EC2 server.
-        // Do NOT commit secrets here. These are placeholders:
-        MONGODB_URI:       process.env.MONGODB_URI       || '',
-        JWT_SECRET:        process.env.JWT_SECRET        || '',
-        ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY || '',
-        GEMINI_API_KEY:    process.env.GEMINI_API_KEY    || '',
       },
     },
   ],
