@@ -106,8 +106,8 @@ jobs:
             fi
 
             echo "── Installing prod dependencies ──────"
-            # Only install production deps (no devDependencies)
-            npm install --omit=dev --ignore-scripts
+            # Only install production deps (no devDependencies), ignore strict peer dependency conflicts
+            npm install --omit=dev --ignore-scripts --legacy-peer-deps
 
             echo "── Reloading PM2 ─────────────────────"
             # 'reload' does a graceful zero-downtime restart
