@@ -28,7 +28,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       # ── 3. Setup Node ──────────────────────────────────────────────────────
       - name: Setup Node.js
@@ -58,7 +58,7 @@ jobs:
 
       # ── 7. Copy artifact to EC2 via SCP ────────────────────────────────────
       - name: Copy dist to EC2
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@master
         with:
           host:     ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -76,6 +76,11 @@ jobs:
           key:      ${{ secrets.EC2_SSH_KEY }}
           port:     22
           script: |
+            # Load Node.js/NVM into the SSH session path
+            export PATH=$PATH:/usr/local/bin
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            
             set -e
             DEPLOY_DIR=$(printf '%s' "${{ secrets.EC2_DEPLOY_PATH }}")
 
