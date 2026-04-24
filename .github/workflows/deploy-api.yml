@@ -74,10 +74,19 @@ jobs:
           key:      ${{ secrets.EC2_SSH_KEY }}
           port:     22
           script: |
-            # Load Node.js/NVM into the SSH session path
-            export PATH=$PATH:/usr/local/bin
+            # Source standard profiles to load Node tools (NVM/Volta/n/etc)
+            source ~/.bashrc || true
+            source ~/.profile || true
+            source ~/.bash_profile || true
+            
+            # Fallback explicitly load NVM if present
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            
+            if ! command -v npm &> /dev/null; then
+              echo "ERROR: npm is not installed or not in PATH! Please SSH into your EC2 instance and install Node.js."
+              exit 1
+            fi
             
             set -e
             DEPLOY_DIR=$(printf '%s' "${{ secrets.EC2_DEPLOY_PATH }}")
