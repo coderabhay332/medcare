@@ -1,6 +1,4 @@
-const BASE = import.meta.env.PROD
-  ? "https://dapi.memora.sbs/api"
-  : "/api";
+const BASE = "/api";
 
 export interface AuthTokens {
   token: string;
