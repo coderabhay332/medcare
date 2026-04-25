@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useAuth } from "@/lib/auth";
 import { Pill, Shield, AlertCircle, ArrowRight, Eye, EyeOff } from "lucide-react";
+import { Form } from "@/components/ui/form";
 
 export default function LoginPage() {
   const [, setLocation] = useLocation();
@@ -83,7 +84,7 @@ export default function LoginPage() {
             <p className="mt-1.5 text-muted-foreground text-sm">Sign in to your account to continue</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <Form onSubmit={handleSubmit} className="space-y-5">
             {error && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
                 <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
@@ -135,7 +136,7 @@ export default function LoginPage() {
                 <>Sign in <ArrowRight className="w-4 h-4" /></>
               )}
             </button>
-          </form>
+          </Form>
 
           <p className="text-center text-sm text-muted-foreground">
             Don't have an account?{" "}

@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { useAuth } from "@/lib/auth";
 import { Pill, AlertCircle, ArrowRight, ArrowLeft, Check, Eye, EyeOff, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Form } from "@/components/ui/form";
 
 const COMMON_CONDITIONS = [
   "Diabetes", "Hypertension", "Liver Disease", "Kidney Disease",
@@ -129,7 +130,7 @@ export default function RegisterPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <Form onSubmit={handleSubmit} className="space-y-5">
           {/* Step 0: Account */}
           {step === 0 && (
             <div className="space-y-4">
@@ -298,7 +299,7 @@ export default function RegisterPage() {
               </div>
             </div>
           )}
-        </form>
+        </Form>
 
         {step === 0 && (
           <p className="text-center text-sm text-muted-foreground">

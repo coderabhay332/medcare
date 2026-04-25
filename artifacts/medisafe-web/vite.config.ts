@@ -51,7 +51,7 @@ export default defineConfig({
     allowedHosts: true,
     proxy: {
       "/api": {
-        target: "https://dapi.memora.sbs",
+        target: "http://localhost:8080",
         changeOrigin: true,
       },
     },

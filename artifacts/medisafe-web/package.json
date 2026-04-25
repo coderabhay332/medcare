@@ -9,6 +9,9 @@
     "serve": "cross-env PORT=5173 BASE_PATH=/ vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "dependencies": {
+    "@base-ui/react": "^1.4.1"
+  },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.4",

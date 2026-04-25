@@ -13,6 +13,7 @@ import {
   Plus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Form } from "@/components/ui/form";
 
 type Tab = "search" | "scan" | "manual";
 
@@ -360,7 +361,7 @@ function ManualTab() {
   );
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <Form onSubmit={handleSubmit} className="space-y-4">
       {success && (
         <div className="flex items-center gap-3 p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary text-sm">
           <CheckCircle className="w-4 h-4 shrink-0" /> {success}
@@ -385,6 +386,6 @@ function ManualTab() {
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
         {loading ? "Adding…" : "Add Medicine"}
       </button>
-    </form>
+    </Form>
   );
 }
