@@ -100,8 +100,21 @@ export interface CheckResponse {
   summary: string;
 }
 
+export type ScanKind = 'medicine_label' | 'prescription' | 'not_medicine' | 'unclear';
+
+export interface ScanCorrection {
+  original: string;
+  corrected: string;
+  score: number;
+}
+
 export interface ScanResult {
-  medicines: string[];      // extracted medicine names shown to the user
+  /** Classification of the uploaded image */
+  kind: ScanKind;
+  /** User-facing one-liner. Set when no medicines were detected. */
+  message?: string;
+  medicines: string[];      // extracted medicine names shown to the user (post-correction)
+  corrections: ScanCorrection[];
   matched: { name: string; [k: string]: unknown }[];
   unmatched: string[];
   rawText?: string;
@@ -330,15 +343,27 @@ export const api = {
         headers: { ...authHeaders() } as Record<string, string>,
         body: fd,
       }).then(async (r) => {
-        const envelope = await r.json().catch(() => ({})) as ApiEnvelope<{ extracted: string[]; matched: unknown[]; unmatched: string[] }>;
+        const envelope = await r.json().catch(() => ({})) as ApiEnvelope<{
+          kind?: ScanKind;
+          message?: string;
+          extracted: string[];
+          corrections?: ScanCorrection[];
+          matched: unknown[];
+          unmatched: string[];
+          rawText?: string;
+        }>;
         if (!r.ok) throw new Error(envelope.message ?? envelope.error ?? `HTTP ${r.status}`);
-        const inner = envelope.data ?? (envelope as unknown as { extracted: string[]; matched: unknown[]; unmatched: string[] });
-        // Map API shape { extracted, matched, unmatched } → { medicines, matched, unmatched }
+        const inner = envelope.data ?? (envelope as unknown as {
+          kind?: ScanKind; message?: string; extracted: string[]; corrections?: ScanCorrection[]; matched: unknown[]; unmatched: string[]; rawText?: string;
+        });
         return {
+          kind: inner.kind ?? 'medicine_label',
+          message: inner.message,
           medicines: inner.extracted ?? [],
+          corrections: inner.corrections ?? [],
           matched: inner.matched ?? [],
           unmatched: inner.unmatched ?? [],
-          rawText: (inner as { rawText?: string }).rawText,
+          rawText: inner.rawText,
         } as ScanResult;
       });
     },

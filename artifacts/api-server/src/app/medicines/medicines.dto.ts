@@ -24,8 +24,27 @@ export interface MedicineSearchResult extends MedicineRecord {
   score?: number;
 }
 
+export type ScanKind = 'medicine_label' | 'prescription' | 'not_medicine' | 'unclear';
+
+/** A name that was auto-corrected to a known brand via fuzzy match */
+export interface ScanCorrection {
+  /** What the AI originally extracted */
+  original: string;
+  /** What we snapped it to (a real brand in our DB) */
+  corrected: string;
+  /** Fuse.js score; lower = closer match */
+  score: number;
+}
+
 export interface ScanResultDTO {
+  /** Classification of the uploaded image */
+  kind: ScanKind;
+  /** User-facing one-liner. Set when no medicines were extracted. */
+  message?: string;
+  /** Final medicine names after fuzzy correction */
   extracted: string[];
+  /** AI extractions that were auto-corrected to known brands */
+  corrections: ScanCorrection[];
   matched: Array<MedicineSearchResult & { confidence: number }>;
   unmatched: string[];
   aiCosts: AiCost[];

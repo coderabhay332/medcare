@@ -8,7 +8,11 @@ const PRICING: Record<string, { input: number; output: number }> = {
   'claude-sonnet-4-6': { input: 0.000003, output: 0.000015 },
   // Google Gemini (free tier, cost 0)
   'gemini-2.0-flash-exp': { input: 0, output: 0 },
-  'gemini-1.5-flash': { input: 0, output: 0 },
+  'gemini-2.0-flash':     { input: 0, output: 0 },
+  'gemini-2.5-flash':     { input: 0, output: 0 },
+  'gemini-2.5-flash-lite':{ input: 0, output: 0 },
+  'gemini-1.5-flash':     { input: 0, output: 0 },
+  'gemini-flash-latest':  { input: 0, output: 0 },
 };
 
 export function calculateCost(model: string, inputTokens: number, outputTokens: number): number {

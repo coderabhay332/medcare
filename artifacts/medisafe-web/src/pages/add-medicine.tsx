@@ -180,8 +180,10 @@ function ScanTab() {
   const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [scanned, setScanned] = useState<string[]>([]);
+  const [corrections, setCorrections] = useState<{ original: string; corrected: string }[]>([]);
   const [rawText, setRawText] = useState("");
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
   const [added, setAdded] = useState<Set<string>>(new Set());
   const [success, setSuccess] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -190,18 +192,29 @@ function ScanTab() {
     setFile(f);
     setPreview(URL.createObjectURL(f));
     setScanned([]);
+    setCorrections([]);
     setRawText("");
     setError("");
+    setNotice("");
   };
 
   const handleScan = async () => {
     if (!file) return;
     setLoading(true);
     setError("");
+    setNotice("");
     try {
       const res = await api.medicines.scan(file);
+      console.log('[scan] response:', res);
       setScanned(res.medicines ?? []);
+      setCorrections(res.corrections ?? []);
       setRawText(res.rawText ?? "");
+
+      if ((res.medicines?.length ?? 0) === 0) {
+        setNotice(res.message ?? "We couldn't find any medicines in this image. Please upload a clearer photo of a medicine label or prescription.");
+      } else if (res.kind === "prescription") {
+        setNotice(`Detected a prescription — extracted ${res.medicines.length} medicine${res.medicines.length === 1 ? "" : "s"}. Patient/doctor details were ignored.`);
+      }
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -230,6 +243,11 @@ function ScanTab() {
       {error && (
         <div className="flex items-center gap-3 p-3.5 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
           <AlertCircle className="w-4 h-4 shrink-0" /> {error}
+        </div>
+      )}
+      {notice && !error && (
+        <div className="flex items-center gap-3 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-sm">
+          <AlertCircle className="w-4 h-4 shrink-0" /> {notice}
         </div>
       )}
 
@@ -273,6 +291,22 @@ function ScanTab() {
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Camera className="w-4 h-4" />}
           {loading ? "Scanning with AI…" : "Scan Label"}
         </button>
+      )}
+
+      {corrections.length > 0 && (
+        <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-3.5 text-xs space-y-1.5">
+          <div className="font-semibold text-blue-700 dark:text-blue-300">Auto-corrected from your prescription</div>
+          {corrections.map((c) => (
+            <div key={c.original} className="text-muted-foreground">
+              <span className="line-through">{c.original}</span>
+              {" → "}
+              <span className="font-medium text-foreground">{c.corrected}</span>
+            </div>
+          ))}
+          <div className="text-[10px] text-muted-foreground/80 pt-1">
+            Handwriting can be hard to read. Please verify each name before adding.
+          </div>
+        </div>
       )}
 
       {scanned.length > 0 && (

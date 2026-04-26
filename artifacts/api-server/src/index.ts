@@ -1,11 +1,7 @@
 import app from "./app.js";
 import { logger } from "./lib/logger.js";
 import { connectDB } from "./app/common/services/db.js";
-import { initMedicineIndex } from "./app/common/services/medicineIndex.js";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { warmFuzzyIndex } from "./app/common/services/medicineIndex.js";
 
 const rawPort = process.env["PORT"];
 
@@ -26,19 +22,11 @@ async function start(): Promise<void> {
   const mongoUri = process.env["MONGODB_URI"];
   if (mongoUri) {
     await connectDB();
+    // Warm the brand fuzzy-match index in the background so the first scan
+    // isn't slow. We don't await — server can start serving while it builds.
+    warmFuzzyIndex().catch(err => logger.warn({ err }, "fuzzy index warm-up failed (non-fatal)"));
   } else {
     logger.warn("MONGODB_URI not set — running without MongoDB. Auth/patient endpoints will not work.");
-  }
-
-  // Load medicine index from CSV
-  const csvPath = process.env["MEDICINES_CSV_PATH"] ??
-    path.join(__dirname, "../data/medicines.csv");
-
-  try {
-    initMedicineIndex(csvPath);
-    logger.info({ csvPath }, "Medicine index loaded");
-  } catch (err) {
-    logger.error({ err, csvPath }, "Failed to load medicine index");
   }
 
   app.listen(port, (err?: Error) => {

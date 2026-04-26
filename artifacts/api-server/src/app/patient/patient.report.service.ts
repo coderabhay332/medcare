@@ -13,7 +13,7 @@
  */
 
 import { claude, REPORT_MODEL } from '../common/services/claudeClient.js';
-import { searchMedicines } from '../common/services/medicineIndex.js';
+import { resolveBrandName } from '../common/services/medicineIndex.js';
 import { calculateCost, type AiCost } from '../../lib/priceTracker.js';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -34,7 +34,9 @@ export interface ExtractedMedication {
 export interface ResolvedMedication extends ExtractedMedication {
   resolvedName: string;    // brand_name from DB  — e.g. "Augmentin 625 Duo Tablet"
   resolvedSalt: string;    // composition from DB — e.g. "Amoxycillin (500mg) + Clavulanic Acid (125mg)"
-  matchConfidence: 'high' | 'low';
+  matchConfidence: 'high' | 'medium' | 'low';
+  /** Set when fuzzy-correction was applied — e.g. "Angformin" → "Anafortan". UI should highlight. */
+  corrected?: string;
 }
 
 export interface ExtractedLabResult {
@@ -516,18 +518,24 @@ async function resolveExtractedMedications(
   await Promise.all(
     extracted.map(async (med) => {
       try {
-        const results = await searchMedicines(med.rawName, 1);
-        if (results.length > 0) {
-          const match = results[0];
+        const r = await resolveBrandName(med.rawName);
+        if (r) {
+          if (r.corrected) {
+            console.log(`[report] 🔧 corrected "${med.rawName}" → "${r.corrected}"`);
+          }
           resolved.push({
             rawName: med.rawName,
             dosage: med.dosage,
             frequency: med.frequency,
-            resolvedName: match.brand_name ?? med.rawName,
-            resolvedSalt: match.composition ?? '',
-            matchConfidence: 'high',
+            resolvedName: r.result.brand_name ?? med.rawName,
+            resolvedSalt: r.result.composition ?? '',
+            matchConfidence: r.confidence,
+            corrected: r.corrected,
           });
         } else {
+          // No safe match — keep raw name; let user opt in to add as-is.
+          // CRITICAL: never silently match to a dissimilar brand (safety: avoid
+          // resolving "Mogilax" laxative to "Risen T" antipsychotic).
           unresolved.push(med);
         }
       } catch {

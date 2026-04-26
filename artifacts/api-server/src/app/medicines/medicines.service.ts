@@ -1,8 +1,8 @@
-import { searchMedicines } from '../common/services/medicineIndex.js';
-import { claude, HAIKU, SCAN_MODEL, isAnthropicConfigured } from '../common/services/claudeClient.js';
-import { extractWithGemini, SCAN_PROMPT } from '../common/services/geminiClient.js';
+import { searchMedicines, resolveBrandName } from '../common/services/medicineIndex.js';
+import { claude, HAIKU, SCAN_MODEL, REPORT_MODEL, isAnthropicConfigured } from '../common/services/claudeClient.js';
+import { extractWithGemini, SCAN_PROMPT, parseScanEnvelope, type ScanExtraction } from '../common/services/geminiClient.js';
 import { DietaryAdviceModel, CombinedDietaryAdviceModel } from '../check/check.schema.js';
-import type { MedicineSearchResult, ScanResultDTO } from './medicines.dto.js';
+import type { MedicineSearchResult, ScanResultDTO, ScanCorrection } from './medicines.dto.js';
 import { calculateCost, type AiCost } from '../../lib/priceTracker.js';
 
 export async function searchMedicinesByQuery(query: string): Promise<MedicineSearchResult[]> {
@@ -230,68 +230,116 @@ Rules:
 
 /**
  * Extracts medicine names from an image using a two-tier approach:
- *   1. Gemini 1.5/2.0 Flash (FREE tier, primary)
- *   2. Claude 3.5 Haiku (cheap paid fallback if Gemini fails or is unconfigured)
+ *   1. Gemini 2.0 Flash (FREE tier, primary)
+ *   2. Claude Haiku (cheap paid fallback — only when Gemini fails / times out)
+ *
+ * If Gemini *successfully* classifies the image as not_medicine or unclear,
+ * we trust that result and do NOT fall through to Claude.
  */
 export async function extractMedicinesFromImage(
   imageBuffer: Buffer,
   mimeType: string,
 ): Promise<ScanResultDTO> {
-  let extracted: string[] = [];
   const aiCosts: AiCost[] = [];
 
   // ── Tier 1: Gemini Flash (free) ─────────────────────────────────────────────
-  const geminiResult = await extractWithGemini(imageBuffer, mimeType, aiCosts);
+  let envelope: ScanExtraction | null = await extractWithGemini(imageBuffer, mimeType, aiCosts);
 
-  if (geminiResult !== null) {
-    console.log('[scan] Using Gemini Flash result — free tier');
-    extracted = geminiResult;
+  if (envelope) {
+    console.log(`[scan] ✅ Gemini classified as "${envelope.kind}" with ${envelope.medicines.length} medicines`);
   } else if (!isAnthropicConfigured) {
-    console.warn('[scan] Neither Gemini nor Anthropic keys are configured — returning empty result');
+    console.warn('[scan] ⚠️  Neither Gemini nor Anthropic keys are configured — returning empty result');
+    envelope = { kind: 'unclear', medicines: [], message: 'Image scanning is not configured on this server.' };
   } else {
     // ── Tier 2: Claude Haiku (paid fallback) ──────────────────────────────────
-    console.log('[scan] Gemini unavailable — falling back to Claude Haiku');
-    extracted = await extractWithClaude(imageBuffer, mimeType, aiCosts);
+    console.log('[scan] 🔁 Gemini unavailable — falling back to Claude Haiku (paid)');
+    const t0 = Date.now();
+    envelope = await extractWithClaude(imageBuffer, mimeType, aiCosts, SCAN_MODEL);
+    console.log(`[scan] ✅ Claude classified as "${envelope.kind}" with ${envelope.medicines.length} medicines (${Date.now() - t0}ms)`);
   }
 
-  // ── Match each extracted name against MongoDB ──────────────────────────────
+  // ── Prescription upgrade: re-extract with Claude Sonnet (vision) ──────────
+  // Handwritten prescriptions need a stronger vision model for accurate OCR.
+  // Keep the original classification (kind), replace the medicines list.
+  if (envelope.kind === 'prescription' && isAnthropicConfigured) {
+    console.log('[scan] 🔍 Prescription detected — upgrading to Claude Sonnet for better OCR');
+    const t0 = Date.now();
+    const upgraded = await extractWithClaude(imageBuffer, mimeType, aiCosts, REPORT_MODEL);
+    console.log(`[scan] ✅ Sonnet extracted ${upgraded.medicines.length} medicines (${Date.now() - t0}ms) — was ${envelope.medicines.length}`);
+    // Trust Sonnet's medicines list; keep original kind/message
+    if (upgraded.medicines.length > 0 || envelope.medicines.length === 0) {
+      envelope = { ...envelope, medicines: upgraded.medicines };
+    }
+  }
+
+  const rawExtracted = envelope.medicines;
+
+  // ── Match each extracted name; fuzzy-correct unmatched ones ───────────────
+  // OCR on handwriting often gives "Angformin" when the real brand is "Anafortan".
+  // For each name with no exact hit, fuzzy-match against known brands and snap if close.
   const matched: Array<MedicineSearchResult & { confidence: number }> = [];
   const unmatched: string[] = [];
+  const corrections: ScanCorrection[] = [];
+  const finalExtracted: string[] = [];
 
   await Promise.all(
-    extracted.map(async name => {
+    rawExtracted.map(async (name, idx) => {
       try {
-        const results = await searchMedicines(name, 1);
-        if (results.length > 0) {
-          matched.push({ ...results[0], confidence: 0.9 });
-        } else {
-          unmatched.push(name);
+        const r = await resolveBrandName(name);
+        if (r) {
+          matched[idx] = { ...r.result, confidence: r.confidence === 'high' ? 0.95 : 0.7 };
+          if (r.corrected) {
+            corrections.push({ original: name, corrected: r.corrected, score: 0 });
+            finalExtracted[idx] = r.corrected;
+            console.log(`[scan] 🔧 corrected "${name}" → "${r.corrected}"`);
+          } else {
+            finalExtracted[idx] = name;
+          }
+          return;
         }
+        // No safe match — keep raw name in the extracted list, user can confirm/edit
+        unmatched.push(name);
+        finalExtracted[idx] = name;
       } catch {
         unmatched.push(name);
+        finalExtracted[idx] = name;
       }
     }),
   );
 
-  return { extracted, matched, unmatched, aiCosts };
+  return {
+    kind: envelope.kind,
+    message: envelope.message,
+    extracted: finalExtracted.filter(Boolean),
+    corrections,
+    matched: matched.filter(Boolean),
+    unmatched,
+    aiCosts,
+  };
 }
 
 /**
- * Claude Haiku fallback extractor — paid but cheap ($0.80/1M tokens).
- * Used when Gemini is not configured or returns an error.
+ * Claude vision extractor. Used as Gemini fallback (Haiku) AND as a prescription
+ * upgrade step (Sonnet) for better handwriting OCR.
  */
-async function extractWithClaude(imageBuffer: Buffer, mimeType: string, aiCosts: AiCost[]): Promise<string[]> {
+async function extractWithClaude(
+  imageBuffer: Buffer,
+  mimeType: string,
+  aiCosts: AiCost[],
+  model: string,
+): Promise<ScanExtraction> {
   if (!claude) {
     console.info('[scan:claude] ANTHROPIC_API_KEY not set — skipping Claude');
-    return [];
+    return { kind: 'unclear', medicines: [], message: 'Image scanning is not configured on this server.' };
   }
 
   const base64 = imageBuffer.toString('base64');
 
   try {
     const response = await claude.messages.create({
-      model: SCAN_MODEL,
+      model,
       max_tokens: 1024,
+      temperature: 0,  // deterministic — same image → same output
       messages: [
         {
           role: 'user',
@@ -304,44 +352,31 @@ async function extractWithClaude(imageBuffer: Buffer, mimeType: string, aiCosts:
                 data: base64,
               },
             },
-            {
-              type: 'text',
-              text: SCAN_PROMPT,
-            },
+            { type: 'text', text: SCAN_PROMPT },
           ],
         },
       ],
     });
 
     const rawText = (response.content[0] as { type: string; text: string }).text ?? '';
+    console.log(`[scan:claude:${model}] raw response:`, rawText.slice(0, 300));
 
-    // Strip markdown code fences if Claude wraps in ```json ... ```
-    const cleaned = rawText
-      .replace(/```json\s*/gi, '')
-      .replace(/```\s*/g, '')
-      .trim();
+    const cost = calculateCost(model, response.usage.input_tokens, response.usage.output_tokens);
+    aiCosts.push({ model, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
 
-    console.log('[scan:claude] raw response:', rawText.slice(0, 300));
-
-    const parsed = JSON.parse(cleaned) as unknown;
-
-    if (!Array.isArray(parsed)) {
-      console.warn('[scan:claude] Did not return an array, got:', typeof parsed);
-      return [];
+    const envelope = parseScanEnvelope(rawText);
+    if (!envelope) {
+      console.warn(`[scan:claude:${model}] could not parse envelope`);
+      return { kind: 'unclear', medicines: [], message: 'Could not read the image. Please try again with a clearer photo.' };
     }
-
-    const cost = calculateCost(SCAN_MODEL, response.usage.input_tokens, response.usage.output_tokens);
-    aiCosts.push({ model: SCAN_MODEL, inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, cost });
-
-    return parsed as string[];
+    return envelope;
   } catch (err: unknown) {
     const e = err as Error & { status?: number; headers?: unknown };
-    console.error('[scan:claude] API call failed —', {
+    console.error(`[scan:claude:${model}] API call failed —`, {
       name:    e?.name,
       message: e?.message,
       status:  e?.status,
-      stack:   e?.stack?.split('\n').slice(0, 5).join('\n'),
     });
-    return [];
+    return { kind: 'unclear', medicines: [], message: 'The scan service is temporarily unavailable. Please try again.' };
   }
 }
